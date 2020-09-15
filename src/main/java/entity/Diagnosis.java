@@ -2,9 +2,7 @@ package entity;
 
 public class Diagnosis {
     private int id;
-
     private String name;
-
     private String difficulty;
 
     public void setId(int id) {

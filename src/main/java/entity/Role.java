@@ -1,9 +1,7 @@
 package entity;
 
 public class Role {
-
     private int id;
-
     private String name;
 
     public Role(int id, String name) {

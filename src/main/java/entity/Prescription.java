@@ -2,11 +2,8 @@ package entity;
 
 public class Prescription {
     private int id;
-
     private String name;
-
     private String prescriptionClass;
-
     private int amountOfMedicine;
 
     public Prescription (int id, String name, String prescriptionClass) {
