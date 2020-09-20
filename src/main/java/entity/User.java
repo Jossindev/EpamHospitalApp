@@ -1,6 +1,6 @@
 package entity;
 
-import utils.UserDataManipulation;
+import utils.data.UserDataManipulation;
 
 public class User {
     private int id;
@@ -49,7 +49,6 @@ public class User {
         this.password = password;
         this.role = userDataManipulation.detectRole(role);
     }
-
 
     public void setId(int id) {
         this.id = id;

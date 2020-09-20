@@ -1,25 +1,31 @@
 package utils;
 
-import org.apache.commons.dbcp2.BasicDataSource;
+import com.zaxxer.hikari.HikariConfig;
+import com.zaxxer.hikari.HikariDataSource;
 
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class PoolConnections {
-    private static final BasicDataSource connectionsPool = new BasicDataSource();
+    private static HikariConfig config = new HikariConfig();
+    private static HikariDataSource ds;
     private static final ResourceBundle resourceBundle = ResourceBundle.getBundle("database");
 
     static {
-        connectionsPool.setUrl(resourceBundle.getString("url"));
-        connectionsPool.setUsername(resourceBundle.getString("user"));
-        connectionsPool.setPassword(resourceBundle.getString("password"));
+        config.setJdbcUrl(resourceBundle.getString("url"));
+        config.setUsername(resourceBundle.getString("user"));
+        config.setPassword(resourceBundle.getString("password"));
+        config.addDataSourceProperty( "cachePrepStmts" , "true" );
+        config.addDataSourceProperty( "prepStmtCacheSize" , "250" );
+        config.addDataSourceProperty( "prepStmtCacheSqlLimit" , "2048" );
+        ds = new HikariDataSource( config );
     }
 
     public PoolConnections() {
     }
 
     public static Connection getConnection() throws SQLException {
-        return connectionsPool.getConnection();
+        return ds.getConnection();
     }
 }

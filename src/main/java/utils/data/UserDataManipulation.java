@@ -1,4 +1,4 @@
-package utils;
+package utils.data;
 
 import entity.Role;
 import implementation.RoleDAOImpl;
