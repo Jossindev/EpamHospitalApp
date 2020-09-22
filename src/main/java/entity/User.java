@@ -2,53 +2,20 @@ package entity;
 
 import utils.data.UserDataManipulation;
 
+import java.time.LocalDate;
+import java.util.Map;
+import java.util.Objects;
+
 public class User {
     private int id;
     private String name;
     private String surname;
+    private LocalDate birthday;
     private String email;
     private String password;
-    private Role role;
+    private Map<Integer, Role> roleMap;
 
     UserDataManipulation userDataManipulation;
-
-    public User (int id, String name, String surname, String email, String password, int role) {
-        userDataManipulation = new UserDataManipulation();
-        this.id = id;
-        this.name = name;
-        this.surname = surname;
-        this.email = email;
-        this.password = password;
-        this.role = userDataManipulation.detectRole(role);
-    }
-
-    public User (String name, String surname, String email, String password, int role) {
-        userDataManipulation = new UserDataManipulation();
-        this.name = name;
-        this.surname = surname;
-        this.email = email;
-        this.password = password;
-        this.role = userDataManipulation.detectRole(role);
-    }
-
-    public User (int id, String name, String surname, String email, String password, int role,UserDataManipulation userDataManipulations1) {
-        userDataManipulation = userDataManipulations1;
-        this.id = id;
-        this.name = name;
-        this.surname = surname;
-        this.email = email;
-        this.password = password;
-        this.role = userDataManipulation.detectRole(role);
-    }
-
-    public User (String name, String surname, String email, String password, int role,UserDataManipulation userDataManipulations1) {
-        userDataManipulation = userDataManipulations1;
-        this.name = name;
-        this.surname = surname;
-        this.email = email;
-        this.password = password;
-        this.role = userDataManipulation.detectRole(role);
-    }
 
     public void setId(int id) {
         this.id = id;
@@ -70,8 +37,8 @@ public class User {
         this.password = password;
     }
 
-    public void setRole(Role role) {
-        this.role = role;
+    public void setRoleMap(Map<Integer, Role> roleMap) {
+        this.roleMap = roleMap;
     }
 
     public int getId() {
@@ -94,7 +61,48 @@ public class User {
         return password;
     }
 
-    public Role getRole() {
-        return role;
+    public void setBirthday(LocalDate birthday) {
+        this.birthday = birthday;
+    }
+
+    public LocalDate getBirthday() {
+        return birthday;
+    }
+    public Map<Integer, Role> getRoleMap() {
+        return roleMap;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return id == user.id &&
+                Objects.equals(name, user.name) &&
+                Objects.equals(surname, user.surname) &&
+                Objects.equals(birthday, user.birthday) &&
+                Objects.equals(email, user.email) &&
+                Objects.equals(password, user.password) &&
+                Objects.equals(roleMap, user.roleMap) &&
+                Objects.equals(userDataManipulation, user.userDataManipulation);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, surname, birthday, email, password, roleMap, userDataManipulation);
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", birthday=" + birthday +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", roleMap=" + roleMap +
+                ", userDataManipulation=" + userDataManipulation +
+                '}';
     }
 }
