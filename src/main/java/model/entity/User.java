@@ -1,6 +1,4 @@
-package entity;
-
-import utils.data.UserDataManipulation;
+package model.entity;
 
 import java.time.LocalDate;
 import java.util.Map;
@@ -15,7 +13,10 @@ public class User {
     private String password;
     private Map<Integer, Role> roleMap;
 
-    UserDataManipulation userDataManipulation;
+    public User() {}
+    public User(int id) {
+        this.id = id;
+    }
 
     public void setId(int id) {
         this.id = id;
@@ -68,6 +69,7 @@ public class User {
     public LocalDate getBirthday() {
         return birthday;
     }
+
     public Map<Integer, Role> getRoleMap() {
         return roleMap;
     }
@@ -84,12 +86,11 @@ public class User {
                 Objects.equals(email, user.email) &&
                 Objects.equals(password, user.password) &&
                 Objects.equals(roleMap, user.roleMap) &&
-                Objects.equals(userDataManipulation, user.userDataManipulation);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, surname, birthday, email, password, roleMap, userDataManipulation);
+        return Objects.hash(id, name, surname, birthday, email, password, roleMap);
     }
 
     @Override
@@ -102,7 +103,6 @@ public class User {
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", roleMap=" + roleMap +
-                ", userDataManipulation=" + userDataManipulation +
                 '}';
     }
 }
