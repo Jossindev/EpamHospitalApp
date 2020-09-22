@@ -1,16 +1,25 @@
 package entity;
 
+import java.util.Objects;
+
 public class Diagnosis {
     private int id;
-    private String name;
+    private String description;
     private String difficulty;
+
+    public Diagnosis() {}
+
+    public Diagnosis(int id) {
+        this.id = id;
+    }
+
 
     public void setId(int id) {
         this.id = id;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public void setDifficulty(String difficulty) {
@@ -21,17 +30,35 @@ public class Diagnosis {
         return id;
     }
 
-    public String getName() {
-        return name;
+    public String getDescription() {
+        return description;
     }
 
     public String getDifficulty() {
         return difficulty;
     }
 
-    public Diagnosis(int id, String name, String difficulty) {
-        this.id = id;
-        this.name = name;
-        this.difficulty = difficulty;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Diagnosis diagnosis = (Diagnosis) o;
+        return id == diagnosis.id &&
+                Objects.equals(description, diagnosis.description) &&
+                Objects.equals(difficulty, diagnosis.difficulty);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, description, difficulty);
+    }
+
+    @Override
+    public String toString() {
+        return "Diagnosis{" +
+                "id=" + id +
+                ", description='" + description + '\'' +
+                ", difficulty='" + difficulty + '\'' +
+                '}';
     }
 }
