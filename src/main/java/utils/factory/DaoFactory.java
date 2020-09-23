@@ -1,11 +1,11 @@
 package utils.factory;
 
-import model.dao.*;
+import model.dao.implementation.*;
 
 public interface DaoFactory {
-    AssignmentDAO createAssignmentDao();
-    TreatmentDAO createTreatmentDao();
-    RoleDAO createRoleDao();
-    UserDAO createUserDao();
-    DiagnosisDAO createDiagnoseDao();
+    AssignmentDAOImpl createAssignmentDao();
+    TreatmentDAOImpl createTreatmentDao();
+    RoleDAOImpl createRoleDao();
+    UserDAOImpl createUserDao();
+    DiagnosisDAOImpl createDiagnoseDao();
 }

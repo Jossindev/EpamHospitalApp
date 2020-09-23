@@ -1,6 +1,6 @@
 package utils.factory;
 
-import model.dao.*;
+import model.dao.implementation.*;
 
 public class DaoFactoryImpl implements DaoFactory {
 
@@ -19,27 +19,27 @@ public class DaoFactoryImpl implements DaoFactory {
     private DaoFactoryImpl() { }
 
     @Override
-    public AssignmentDAO createAssignmentDao() {
-        return new AssignmentDAO();
+    public AssignmentDAOImpl createAssignmentDao() {
+        return new AssignmentDAOImpl();
     }
 
     @Override
-    public TreatmentDAO createTreatmentDao() {
-        return new TreatmentDAO();
+    public TreatmentDAOImpl createTreatmentDao() {
+        return new TreatmentDAOImpl();
     }
 
     @Override
-    public RoleDAO createRoleDao() {
-        return new RoleDAO();
+    public RoleDAOImpl createRoleDao() {
+        return new RoleDAOImpl();
     }
 
     @Override
-    public UserDAO createUserDao() {
-        return new UserDAO();
+    public UserDAOImpl createUserDao() {
+        return new UserDAOImpl();
     }
 
     @Override
-    public DiagnosisDAO createDiagnoseDao() {
-        return new DiagnosisDAO();
+    public DiagnosisDAOImpl createDiagnoseDao() {
+        return new DiagnosisDAOImpl();
     }
 }
