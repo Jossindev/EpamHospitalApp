@@ -1,15 +1,11 @@
-import utils.PoolConnections;
-
-import java.sql.SQLException;
+import model.dao.implementation.RoleDAOImpl;
+import model.dao.implementation.UserDAOImpl;
 
 public class Main {
     public static void main(String[] args) {
 
-        try {
-            PoolConnections.getConnection();
-        } catch (SQLException sqlException) {
-            sqlException.printStackTrace();
-        }
+        UserDAOImpl users = new UserDAOImpl();
+        System.out.println(users.findAll());
 
     }
 }

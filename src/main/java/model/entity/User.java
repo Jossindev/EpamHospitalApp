@@ -1,21 +1,38 @@
 package model.entity;
 
+import model.dao.implementation.RoleDAOImpl;
+import model.dao.interfaces.RoleDAO;
+
 import java.time.LocalDate;
-import java.util.Map;
+import java.util.Date;
 import java.util.Objects;
 
 public class User {
     private int id;
     private String name;
     private String surname;
-    private LocalDate birthday;
+    private Date birthday;
     private String email;
     private String password;
-    private Map<Integer, Role> roleMap;
+    private Role roleId;
 
     public User() {}
     public User(int id) {
         this.id = id;
+    }
+
+    public User(int id, String name, String surname, Date birthday, String email, String password, int roleId) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.birthday = birthday;
+        this.email = email;
+        this.password = password;
+        this.roleId = detectRole(roleId);
+    }
+
+    public Role detectRole(int role) {
+        return new RoleDAOImpl().findById(role);
     }
 
     public void setId(int id) {
@@ -38,8 +55,8 @@ public class User {
         this.password = password;
     }
 
-    public void setRoleMap(Map<Integer, Role> roleMap) {
-        this.roleMap = roleMap;
+    public void setRoleId(Role roleId) {
+        this.roleId = roleId;
     }
 
     public int getId() {
@@ -62,16 +79,16 @@ public class User {
         return password;
     }
 
-    public void setBirthday(LocalDate birthday) {
+    public void setBirthday(Date birthday) {
         this.birthday = birthday;
     }
 
-    public LocalDate getBirthday() {
+    public Date getBirthday() {
         return birthday;
     }
 
-    public Map<Integer, Role> getRoleMap() {
-        return roleMap;
+    public Role getRoleId() {
+        return roleId;
     }
 
     @Override
@@ -85,12 +102,12 @@ public class User {
                 Objects.equals(birthday, user.birthday) &&
                 Objects.equals(email, user.email) &&
                 Objects.equals(password, user.password) &&
-                Objects.equals(roleMap, user.roleMap);
+                Objects.equals(roleId, user.roleId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, surname, birthday, email, password, roleMap);
+        return Objects.hash(id, name, surname, birthday, email, password, roleId);
     }
 
     @Override
@@ -102,7 +119,7 @@ public class User {
                 ", birthday=" + birthday +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
-                ", roleMap=" + roleMap +
+                ", roleMap=" + roleId +
                 '}';
     }
 }
