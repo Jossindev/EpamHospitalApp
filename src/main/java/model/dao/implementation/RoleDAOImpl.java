@@ -12,10 +12,10 @@ import java.sql.SQLException;
 import org.apache.log4j.Logger;
 
 public class RoleDAOImpl implements RoleDAO {
+    private static final Logger logger = Logger.getLogger(RoleDAOImpl.class);
+
     public RoleDAOImpl() {
     }
-
-    private static final Logger logger = Logger.getLogger(RoleDAOImpl.class);
 
     @Override
     public Role findById(int id) {

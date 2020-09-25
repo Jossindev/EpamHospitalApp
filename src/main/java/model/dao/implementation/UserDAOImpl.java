@@ -1,6 +1,8 @@
 package model.dao.implementation;
 
+import model.dao.interfaces.UserDAO;
 import model.entity.User;
+import org.apache.log4j.Logger;
 import utils.PoolConnections;
 
 import java.sql.*;
@@ -8,10 +10,13 @@ import java.util.ArrayList;
 import java.sql.Date;
 import java.util.List;
 
-public class UserDAOImpl {
+public class UserDAOImpl implements UserDAO {
+    private static Logger logger = Logger.getLogger(UserDAOImpl.class);
+
     public UserDAOImpl() {
     }
 
+    @Override
     public List<User> findAll() {
         List<User> users = new ArrayList<>();
         String sql = "select * from user";
@@ -31,12 +36,13 @@ public class UserDAOImpl {
                 User user = new User(id, name, surname, birthday, email, pass, role);
                 users.add(user);
             }
-        } catch (SQLException sqlException) {
-            sqlException.printStackTrace();
+        } catch (SQLException e) {
+            logger.error("Can not find all users ", e);
         }
         return users;
     }
 
+    @Override
     public User findByNameEmailAndPass(String name, String email, String password) {
         User user = null;
         String sql = "select * from user where name = ? and email = ? and password = ?";
@@ -58,12 +64,13 @@ public class UserDAOImpl {
                             rs.getInt("role_id"));
                 }
             }
-        } catch (SQLException sqlException) {
-            sqlException.printStackTrace();
+        } catch (SQLException e) {
+            logger.error("Can not find by name and email ", e);
         }
         return user;
     }
 
+    @Override
     public void insert(User user) {
         String sql = "insert into  user(name, surname, birthday, email, password, role_id)  " +
                 "values (?, ?, ?, ?, ?, ?)";
@@ -77,11 +84,12 @@ public class UserDAOImpl {
             statement.setString(5, user.getPassword());
             statement.setInt(6, user.getRoleId().getId());
             statement.execute();
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+        } catch (SQLException e) {
+            logger.error("Can not insert into user table ", e);
         }
     }
 
+    @Override
     public User findById(int id) {
         User user = null;
         String sql = "select * from user where id =?";
@@ -100,7 +108,8 @@ public class UserDAOImpl {
                             resultSet.getInt("role_id"));
                 }
             }
-        } catch (SQLException throwables) {
+        } catch (SQLException e) {
+            logger.error("Can not find by id ", e);
         }
         return user;
     }

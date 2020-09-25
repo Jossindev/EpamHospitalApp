@@ -1,8 +1,9 @@
 
+import model.dao.implementation.DiagnosisDAOImpl;
 import model.dao.implementation.UserDAOImpl;
+import model.entity.Diagnosis;
 import model.entity.User;
 
-import java.sql.Date;
 
 public class Main {
     public static void main(String[] args) {
@@ -14,7 +15,10 @@ public class Main {
 //       User user2 = new User("name1","surname1",new Date(2020-01-01),
 //               "email","pass",new User().detectRole(1));
 //        users.insert(user);
-
+        DiagnosisDAOImpl d = new DiagnosisDAOImpl();
+        Diagnosis diagnosis =  d.findById(1);
+        System.out.println(diagnosis);
+        System.out.println(d.findAll());
 
     }
 }

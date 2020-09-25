@@ -13,6 +13,11 @@ public class Diagnosis {
         this.id = id;
     }
 
+    public Diagnosis(int id, String description, String difficulty) {
+        this.id = id;
+        this.description = description;
+        this.difficulty = difficulty;
+    }
 
     public void setId(int id) {
         this.id = id;
