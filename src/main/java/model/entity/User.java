@@ -4,7 +4,7 @@ import model.dao.implementation.RoleDAOImpl;
 import model.dao.interfaces.RoleDAO;
 
 import java.time.LocalDate;
-import java.util.Date;
+import java.sql.Date;
 import java.util.Objects;
 
 public class User {
@@ -19,6 +19,15 @@ public class User {
     public User() {}
     public User(int id) {
         this.id = id;
+    }
+
+    public User(String name, String surname, Date birthday, String email, String password, Role roleId) {
+        this.name = name;
+        this.surname = surname;
+        this.birthday = birthday;
+        this.email = email;
+        this.password = password;
+        this.roleId = roleId;
     }
 
     public User(int id, String name, String surname, Date birthday, String email, String password, int roleId) {

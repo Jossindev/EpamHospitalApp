@@ -3,12 +3,9 @@ package model.dao.implementation;
 import model.entity.User;
 import utils.PoolConnections;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 
 public class UserDAOImpl {
@@ -31,12 +28,80 @@ public class UserDAOImpl {
                 String pass = resultSet.getString("password");
                 int role = resultSet.getInt("role_id");
 
-                User user = new User(id,name,surname,birthday,email,pass,role);
+                User user = new User(id, name, surname, birthday, email, pass, role);
                 users.add(user);
             }
         } catch (SQLException sqlException) {
             sqlException.printStackTrace();
         }
         return users;
+    }
+
+    public User findByNameEmailAndPass(String name, String email, String password) {
+        User user = null;
+        String sql = "select * from user where name = ? and email = ? and password = ?";
+
+        try (Connection connection = PoolConnections.getConnection();
+             PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setString(1, name);
+            statement.setString(2, email);
+            statement.setString(3, password);
+
+            try (ResultSet rs = statement.executeQuery()) {
+                while (rs.next()) {
+                    user = new User(rs.getInt("id"),
+                            rs.getString("name"),
+                            rs.getString("surname"),
+                            rs.getDate("birthday"),
+                            rs.getString("email"),
+                            rs.getString("password"),
+                            rs.getInt("role_id"));
+                }
+            }
+        } catch (SQLException sqlException) {
+            sqlException.printStackTrace();
+        }
+        return user;
+    }
+
+    public void insert(User user) {
+        String sql = "insert into  user(name, surname, birthday, email, password, role_id)  " +
+                "values (?, ?, ?, ?, ?, ?)";
+
+        try (Connection connection = PoolConnections.getConnection()) {
+            PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            statement.setString(1, user.getName());
+            statement.setString(2, user.getSurname());
+            statement.setDate(3, user.getBirthday());
+            statement.setString(4, user.getEmail());
+            statement.setString(5, user.getPassword());
+            statement.setInt(6, user.getRoleId().getId());
+            statement.execute();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+
+    public User findById(int id) {
+        User user = null;
+        String sql = "select * from user where id =?";
+        try (Connection connection = PoolConnections.getConnection();
+             PreparedStatement statement = connection.prepareStatement(sql)) {
+
+            statement.setInt(1, id);
+            try (ResultSet resultSet = statement.executeQuery()) {
+                while (resultSet.next()) {
+                    user = new User(resultSet.getInt("id"),
+                            resultSet.getString("name"),
+                            resultSet.getString("surname"),
+                            resultSet.getDate("birthday"),
+                            resultSet.getString("email"),
+                            resultSet.getString("password"),
+                            resultSet.getInt("role_id"));
+                }
+            }
+        } catch (SQLException throwables) {
+        }
+        return user;
     }
 }
