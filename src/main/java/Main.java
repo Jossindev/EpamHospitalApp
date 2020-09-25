@@ -1,7 +1,6 @@
 
-import model.dao.implementation.DiagnosisDAOImpl;
+import model.dao.implementation.TreatmentDAOImpl;
 import model.dao.implementation.UserDAOImpl;
-import model.entity.Diagnosis;
 import model.entity.User;
 
 
@@ -15,10 +14,17 @@ public class Main {
 //       User user2 = new User("name1","surname1",new Date(2020-01-01),
 //               "email","pass",new User().detectRole(1));
 //        users.insert(user);
-        DiagnosisDAOImpl d = new DiagnosisDAOImpl();
-        Diagnosis diagnosis =  d.findById(1);
-        System.out.println(diagnosis);
-        System.out.println(d.findAll());
+//        DiagnosisDAOImpl d = new DiagnosisDAOImpl();
+//        Diagnosis diagnosis =  d.findById(1);
+//        System.out.println(diagnosis);
+//        System.out.println(d.findAll());
+
+        TreatmentDAOImpl treatmentDAO = new TreatmentDAOImpl();
+//        System.out.println(treatmentDAO.findDoctorById(5));
+//        System.out.println(treatmentDAO.findDoctorPatients(5));
+//        System.out.println(treatmentDAO.findPatientsWhereNoNurse());
+//        System.out.println(treatmentDAO.findPatientsWhereNoDoctor());
+        treatmentDAO.updatePatientDiagnosis(1,3);
 
     }
 }

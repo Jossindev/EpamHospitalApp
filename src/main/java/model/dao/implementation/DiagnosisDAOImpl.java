@@ -22,9 +22,10 @@ public class DiagnosisDAOImpl implements DiagnosisDAO {
     public List<Diagnosis> findAll() {
         List<Diagnosis> result = new ArrayList<>();
         String sql = "select * from diagnosis";
-        try (Connection connection = PoolConnections.getConnection()) {
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            ResultSet resultSet = preparedStatement.executeQuery();
+        try (Connection connection = PoolConnections.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(sql);
+             ResultSet resultSet = preparedStatement.executeQuery()) {
+
             while (resultSet.next()) {
                 int id = resultSet.getInt("id");
                 String name = resultSet.getString("description");

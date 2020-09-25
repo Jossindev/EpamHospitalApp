@@ -22,13 +22,15 @@ public class RoleDAOImpl implements RoleDAO {
         Role role = null;
         String sql = "select * from role where id = ?";
 
-        try (Connection connection = PoolConnections.getConnection()) {
-            PreparedStatement statement = connection.prepareStatement(sql);
+        try (Connection connection = PoolConnections.getConnection();
+             PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setInt(1, id);
-            ResultSet resultSet = statement.executeQuery();
-            while (resultSet.next()) {
-                role = new Role(resultSet.getInt("id"),
-                        resultSet.getString("name"));
+
+            try (ResultSet resultSet = statement.executeQuery()) {
+                while (resultSet.next()) {
+                    role = new Role(resultSet.getInt("id"),
+                            resultSet.getString("name"));
+                }
             }
         } catch (SQLException e) {
             logger.error("Can not find Role by Id ", e);
@@ -40,13 +42,15 @@ public class RoleDAOImpl implements RoleDAO {
     public Role findByName(String name) {
         Role role = null;
         String sql = "select * from role where name = ?";
-        try (Connection connection = PoolConnections.getConnection()) {
-            PreparedStatement statement = connection.prepareStatement(sql);
+        try (Connection connection = PoolConnections.getConnection();
+             PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setString(1, name);
-            ResultSet resultSet = statement.executeQuery();
-            while (resultSet.next()) {
-                role = new Role(resultSet.getInt("id"),
-                        resultSet.getString("name"));
+
+            try (ResultSet resultSet = statement.executeQuery()) {
+                while (resultSet.next()) {
+                    role = new Role(resultSet.getInt("id"),
+                            resultSet.getString("name"));
+                }
             }
         } catch (SQLException e) {
             logger.error("Can not find Role by name ", e);

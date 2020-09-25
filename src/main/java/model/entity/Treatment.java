@@ -1,6 +1,8 @@
 package model.entity;
 
-import java.util.List;
+import model.dao.implementation.DiagnosisDAOImpl;
+import model.dao.implementation.UserDAOImpl;
+
 import java.util.Objects;
 
 public class Treatment {
@@ -9,18 +11,23 @@ public class Treatment {
     private User doctor;
     private User nurse;
     private String comment;
-    private List<Assignment> assignments;
-    private List<Diagnosis> diagnoses;
-    private boolean onTreatment;
+    private Assignment assignments;
+    private Diagnosis diagnosis;
 
-    public Treatment() {}
+    public Treatment() { }
+
     public Treatment(int id) {
         this.id = id;
     }
 
-    public int getId() {
-        return id;
+    public Treatment(int patientId, int doctorId, int nurseId, int diagnosisId) {
+        this.patient = detectPerson(patientId);
+        this.doctor = detectPerson(doctorId);
+        this.nurse = detectPerson(nurseId);
+        this.diagnosis = detectDiagnosis(diagnosisId);
     }
+
+    public int getId() { return id; }
 
     public User getPatient() {
         return patient;
@@ -38,16 +45,12 @@ public class Treatment {
         return comment;
     }
 
-    public List<Assignment> getAssignments() {
+    public Assignment getAssignments() {
         return assignments;
     }
 
-    public List<Diagnosis> getDiagnoses() {
-        return diagnoses;
-    }
-
-    public boolean isOnTreatment() {
-        return onTreatment;
+    public Diagnosis getDiagnoses() {
+        return diagnosis;
     }
 
     public void setId(int id) {
@@ -70,17 +73,14 @@ public class Treatment {
         this.comment = comment;
     }
 
-    public void setAssignments(List<Assignment> assignments) {
+    public void setAssignments(Assignment assignments) {
         this.assignments = assignments;
     }
 
-    public void setDiagnoses(List<Diagnosis> diagnoses) {
-        this.diagnoses = diagnoses;
+    public void setDiagnoses(Diagnosis diagnosis) {
+        this.diagnosis = diagnosis;
     }
 
-    public void setOnTreatment(boolean onTreatment) {
-        this.onTreatment = onTreatment;
-    }
 
     @Override
     public boolean equals(Object o) {
@@ -88,18 +88,17 @@ public class Treatment {
         if (o == null || getClass() != o.getClass()) return false;
         Treatment treatment = (Treatment) o;
         return id == treatment.id &&
-                onTreatment == treatment.onTreatment &&
                 Objects.equals(patient, treatment.patient) &&
                 Objects.equals(doctor, treatment.doctor) &&
                 Objects.equals(nurse, treatment.nurse) &&
                 Objects.equals(comment, treatment.comment) &&
                 Objects.equals(assignments, treatment.assignments) &&
-                Objects.equals(diagnoses, treatment.diagnoses);
+                Objects.equals(diagnosis, treatment.diagnosis);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, patient, doctor, nurse, comment, assignments, diagnoses, onTreatment);
+        return Objects.hash(id, patient, doctor, nurse, comment, assignments, diagnosis);
     }
 
     @Override
@@ -111,8 +110,15 @@ public class Treatment {
                 ", nurse=" + nurse +
                 ", comment='" + comment + '\'' +
                 ", assignments=" + assignments +
-                ", diagnoses=" + diagnoses +
-                ", onTreatment=" + onTreatment +
+                ", diagnoses=" + diagnosis +
                 '}';
+    }
+
+    public User detectPerson(int id) {
+        return new UserDAOImpl().findById(id);
+    }
+
+    public Diagnosis detectDiagnosis(int id) {
+        return new DiagnosisDAOImpl().findById(id);
     }
 }
