@@ -1,4 +1,4 @@
-package model.dao.implementation;
+package model.dao.repository;
 
 public class AssignmentDAOImpl {
     public AssignmentDAOImpl() {

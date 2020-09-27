@@ -1,4 +1,4 @@
-package model.dao.implementation;
+package model.dao.repository;
 
 import model.dao.interfaces.UserDAO;
 import model.entity.User;
@@ -71,7 +71,7 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public void insert(User user) {
+    public void addUser(User user) {
         String sql = "insert into  user(name, surname, birthday, email, password, role_id)  " +
                 "values (?, ?, ?, ?, ?, ?)";
 

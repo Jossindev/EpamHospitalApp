@@ -1,6 +1,5 @@
 
-import model.dao.implementation.TreatmentDAOImpl;
-import model.dao.implementation.UserDAOImpl;
+import model.dao.repository.UserDAOImpl;
 import model.entity.User;
 
 
@@ -20,10 +19,10 @@ public class Main {
 //        System.out.println(d.findAll());
 
         TreatmentDAOImpl treatmentDAO = new TreatmentDAOImpl();
-//        System.out.println(treatmentDAO.findDoctorById(5));
-//        System.out.println(treatmentDAO.findDoctorPatients(5));
-//        System.out.println(treatmentDAO.findPatientsWhereNoNurse());
-//        System.out.println(treatmentDAO.findPatientsWhereNoDoctor());
+      System.out.println(treatmentDAO.findDoctorById(5));
+      System.out.println(treatmentDAO.findDoctorPatients(5));
+      System.out.println(treatmentDAO.findPatientsWhereNoNurse());
+        System.out.println(treatmentDAO.findPatientsWhereNoDoctor());
         treatmentDAO.updatePatientDiagnosis(1,3);
 
     }

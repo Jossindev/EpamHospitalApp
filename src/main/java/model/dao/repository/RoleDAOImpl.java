@@ -1,4 +1,4 @@
-package model.dao.implementation;
+package model.dao.repository;
 
 import model.dao.interfaces.RoleDAO;
 import model.entity.Role;
