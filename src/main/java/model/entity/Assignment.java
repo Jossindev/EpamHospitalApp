@@ -1,5 +1,9 @@
 package model.entity;
 
+import model.dao.repository.AssignmentTypeDAOImpl;
+import model.dao.repository.DoctorDAOImpl;
+import model.dao.repository.TreatmentDAOImpl;
+
 import java.util.Objects;
 
 public class Assignment {
@@ -13,12 +17,13 @@ public class Assignment {
         this.id = id;
     }
 
-    public Assignment(int id, Doctor executor, Doctor reporter, String description, AssignmentType type) {
+
+    public Assignment(int id, int executor, int reporter, String description, int type) {
         this.id = id;
-        this.executor = executor;
-        this.reporter = reporter;
+        this.executor = detectDoctor(executor);
+        this.reporter = detectDoctor(reporter);
         this.description = description;
-        this.type = type;
+        this.type = detectAssignmentType(type);
     }
 
     public int getId() {
@@ -87,5 +92,12 @@ public class Assignment {
                 ", description='" + description + '\'' +
                 ", type=" + type +
                 '}';
+    }
+
+    public Doctor detectDoctor(int id) {
+        return new DoctorDAOImpl().findDoctorById(id);
+    }
+    public AssignmentType detectAssignmentType(int id) {
+        return new AssignmentTypeDAOImpl().findById(id);
     }
 }

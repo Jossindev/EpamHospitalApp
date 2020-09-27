@@ -1,15 +1,18 @@
 package model.entity;
 
+import model.dao.repository.DoctorDAOImpl;
+import model.dao.repository.UserDAOImpl;
+
 import java.util.Objects;
 
 public class Doctor {
     private int id;
-    private User user;
+    private User userId;
     private String doctorType;
 
-    public Doctor(int id, User userId, String doctorType) {
+    public Doctor(int id, int userId, String doctorType) {
         this.id = id;
-        this.user = userId;
+        this.userId = detectUser(userId);
         this.doctorType = doctorType;
     }
 
@@ -22,11 +25,11 @@ public class Doctor {
     }
 
     public User getUserId() {
-        return user;
+        return userId;
     }
 
     public void setUserId(User userId) {
-        this.user= userId;
+        this.userId = userId;
     }
 
     public String getDoctorType() {
@@ -43,21 +46,24 @@ public class Doctor {
         if (o == null || getClass() != o.getClass()) return false;
         Doctor doctor = (Doctor) o;
         return id == doctor.id &&
-                Objects.equals(user, doctor.user) &&
+                Objects.equals(userId, doctor.userId) &&
                 Objects.equals(doctorType, doctor.doctorType);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, user, doctorType);
+        return Objects.hash(id, userId, doctorType);
     }
 
     @Override
     public String toString() {
         return "Doctor{" +
                 "id=" + id +
-                ", userId=" + user +
+                ", userId=" + userId +
                 ", doctorType='" + doctorType + '\'' +
                 '}';
+    }
+    public User detectUser(int id) {
+        return new UserDAOImpl().findById(id);
     }
 }

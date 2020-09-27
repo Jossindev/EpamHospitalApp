@@ -1,5 +1,7 @@
 package model.entity;
 
+import model.dao.repository.AssignmentDAOImpl;
+
 import java.util.Objects;
 
 public class Treatment {
@@ -7,9 +9,9 @@ public class Treatment {
     private Assignment assignment;
     private String diagnosis;
 
-    public Treatment(int id, Assignment assignment, String diagnosis) {
+    public Treatment(int id, int assignment, String diagnosis) {
         this.id = id;
-        this.assignment = assignment;
+        this.assignment = detectAssignment(assignment);
         this.diagnosis = diagnosis;
     }
 
@@ -59,5 +61,9 @@ public class Treatment {
                 ", assignment=" + assignment +
                 ", diagnosis='" + diagnosis + '\'' +
                 '}';
+    }
+
+    public Assignment detectAssignment(int id) {
+        return new AssignmentDAOImpl().findById(id);
     }
 }

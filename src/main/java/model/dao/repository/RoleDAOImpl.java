@@ -13,6 +13,8 @@ import org.apache.log4j.Logger;
 
 public class RoleDAOImpl implements RoleDAO {
     private static final Logger logger = Logger.getLogger(RoleDAOImpl.class);
+    private static final String FIND_ROLE_BY_ID = "select * from role where id = ?";
+    private static final String FIND_ROLE_BY_NAME = "select * from role where name = ?";
 
     public RoleDAOImpl() {
     }
@@ -20,10 +22,9 @@ public class RoleDAOImpl implements RoleDAO {
     @Override
     public Role findById(int id) {
         Role role = null;
-        String sql = "select * from role where id = ?";
 
         try (Connection connection = PoolConnections.getConnection();
-             PreparedStatement statement = connection.prepareStatement(sql)) {
+             PreparedStatement statement = connection.prepareStatement(FIND_ROLE_BY_ID)) {
             statement.setInt(1, id);
 
             try (ResultSet resultSet = statement.executeQuery()) {
@@ -41,9 +42,9 @@ public class RoleDAOImpl implements RoleDAO {
     @Override
     public Role findByName(String name) {
         Role role = null;
-        String sql = "select * from role where name = ?";
+
         try (Connection connection = PoolConnections.getConnection();
-             PreparedStatement statement = connection.prepareStatement(sql)) {
+             PreparedStatement statement = connection.prepareStatement(FIND_ROLE_BY_NAME)) {
             statement.setString(1, name);
 
             try (ResultSet resultSet = statement.executeQuery()) {

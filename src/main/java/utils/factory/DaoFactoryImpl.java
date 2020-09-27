@@ -16,12 +16,22 @@ public class DaoFactoryImpl implements DaoFactory {
         return instance;
     }
 
-    private DaoFactoryImpl() { }
+    private DaoFactoryImpl() {
+    }
 
     @Override
     public AssignmentDAOImpl createAssignmentDao() {
         return new AssignmentDAOImpl();
     }
+
+    @Override
+    public AssignmentTypeDAOImpl createAssignmentTypeDAO() { return new AssignmentTypeDAOImpl(); }
+
+    @Override
+    public DoctorDAOImpl createDoctorDAO() { return new DoctorDAOImpl(); }
+
+    @Override
+    public PatientDAOImpl createPatientDAO() { return new PatientDAOImpl(); }
 
     @Override
     public TreatmentDAOImpl createTreatmentDao() {
@@ -38,8 +48,4 @@ public class DaoFactoryImpl implements DaoFactory {
         return new UserDAOImpl();
     }
 
-    @Override
-    public DiagnosisDAOImpl createDiagnoseDao() {
-        return new DiagnosisDAOImpl();
-    }
 }

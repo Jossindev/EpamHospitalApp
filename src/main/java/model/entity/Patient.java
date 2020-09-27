@@ -1,5 +1,8 @@
 package model.entity;
 
+import model.dao.repository.DoctorDAOImpl;
+import model.dao.repository.TreatmentDAOImpl;
+
 import java.util.Objects;
 
 public class Patient {
@@ -17,6 +20,12 @@ public class Patient {
         this.doctor = doctor;
         this.nurse = nurse;
         this.treatment = treatment;
+    }
+    public Patient(int id, int doctor, int nurse, int treatment) {
+        this.id = id;
+        this.doctor = detectDoctor(doctor);
+        this.nurse = detectDoctor(nurse);
+        this.treatment = detectTreatment(treatment);
     }
 
     public int getId() {
@@ -75,5 +84,11 @@ public class Patient {
                 ", nurse=" + nurse +
                 ", treatment=" + treatment +
                 '}';
+    }
+    public Doctor detectDoctor(int id) {
+        return new DoctorDAOImpl().findDoctorById(id);
+    }
+    public Treatment detectTreatment(int id) {
+        return new TreatmentDAOImpl().findById(id);
     }
 }

@@ -11,6 +11,12 @@ import java.sql.Date;
 import java.util.List;
 
 public class UserDAOImpl implements UserDAO {
+    private final static String FIND_BY_ID = "select * from user where id =?";
+    private final static String FIND_ALL = "select * from user";
+    private final static String FIND_BY_EMAIL_AND_PASS = "select * from user where email = ? and password = ?";
+    private final static String INSERT_USER = "insert into user(name, surname, birthday, email, password, role_id)  " +
+            "values (?, ?, ?, ?, ?, ?)";
+
     private static Logger logger = Logger.getLogger(UserDAOImpl.class);
 
     public UserDAOImpl() {
@@ -19,9 +25,9 @@ public class UserDAOImpl implements UserDAO {
     @Override
     public List<User> findAll() {
         List<User> users = new ArrayList<>();
-        String sql = "select * from user";
+
         try (Connection connection = PoolConnections.getConnection();
-             PreparedStatement statement = connection.prepareStatement(sql);
+             PreparedStatement statement = connection.prepareStatement(FIND_ALL);
              ResultSet resultSet = statement.executeQuery()) {
 
             while (resultSet.next()) {
@@ -43,15 +49,13 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public User findByNameEmailAndPass(String name, String email, String password) {
+    public User findByEmailAndPass(String email, String password) {
         User user = null;
-        String sql = "select * from user where name = ? and email = ? and password = ?";
 
         try (Connection connection = PoolConnections.getConnection();
-             PreparedStatement statement = connection.prepareStatement(sql)) {
-            statement.setString(1, name);
-            statement.setString(2, email);
-            statement.setString(3, password);
+             PreparedStatement statement = connection.prepareStatement(FIND_BY_EMAIL_AND_PASS)) {
+            statement.setString(1, email);
+            statement.setString(2, password);
 
             try (ResultSet rs = statement.executeQuery()) {
                 while (rs.next()) {
@@ -72,11 +76,8 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public void addUser(User user) {
-        String sql = "insert into  user(name, surname, birthday, email, password, role_id)  " +
-                "values (?, ?, ?, ?, ?, ?)";
-
         try (Connection connection = PoolConnections.getConnection()) {
-            PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement statement = connection.prepareStatement(INSERT_USER, Statement.RETURN_GENERATED_KEYS);
             statement.setString(1, user.getName());
             statement.setString(2, user.getSurname());
             statement.setDate(3, user.getBirthday());
@@ -92,9 +93,8 @@ public class UserDAOImpl implements UserDAO {
     @Override
     public User findById(int id) {
         User user = null;
-        String sql = "select * from user where id =?";
         try (Connection connection = PoolConnections.getConnection();
-             PreparedStatement statement = connection.prepareStatement(sql)) {
+             PreparedStatement statement = connection.prepareStatement(FIND_BY_ID)) {
 
             statement.setInt(1, id);
             try (ResultSet resultSet = statement.executeQuery()) {
