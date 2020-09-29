@@ -4,7 +4,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
+
 
 @WebServlet(name = "FirstServlet")
 public class FirstServlet extends HttpServlet {
@@ -14,9 +14,5 @@ public class FirstServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        PrintWriter wr =  response.getWriter();
-        wr.println("<html>");
-        wr.println("<h1>Hello!</h1>");
-        wr.println("</html>");
     }
 }

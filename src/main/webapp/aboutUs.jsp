@@ -38,6 +38,7 @@
         <li><a href="#">About us</a></li>
     </ul>
 </header>
+
 <!--   Card elements  -->
 <div class="row">
     <div class="col s12 m4">
@@ -47,7 +48,7 @@
                 <span class="card-title">Doctors</span>
             </div>
             <div class="card-content">
-                <p>The earliest known occurrences of Lorem ipsum passages are on Letraset dry-transfer sheets from early 1970s, which were produced to be used graphic designers.</p>
+                <p>Get an Expert Medical Opinion from one of our world-renowned doctors so you can have the answers and confidence to make informed decisions about your health</p>
             </div>
             <div class="card-action">
                 <a href="#">Read More</a>
@@ -62,7 +63,7 @@
                 <span class="card-title">Nurses</span>
             </div>
             <div class="card-content">
-                <p>The earliest known occurrences of Lorem ipsum passages are on Letraset dry-transfer sheets from early 1970s, which were produced to be used graphic designers.</p>
+                <p>Get an Expert Medical Opinion from one of our world-renowned nurses so you can have the answers and confidence to make informed decisions about your health</p>
             </div>
             <div class="card-action">
                 <a href="#">Read More</a>
@@ -77,7 +78,7 @@
                 <span class="card-title">Patients</span>
             </div>
             <div class="card-content">
-                <p>The earliest known occurrences of Lorem ipsum passages are on Letraset dry-transfer sheets from early 1970s, which were produced to be used graphic designers.</p>
+                <p> Our patients are very satisfied with the work of doctors. Conditions for our patients are one of the best.</p>
             </div>
             <div class="card-action">
                 <a href="#">Read More</a>
@@ -104,9 +105,7 @@
         </div>
     </div>
     <div class="footer-copyright">
-        <div class="container">
-            © 2020 Fake hospital
-        </div>
+        <div class="container"> © 2020 Fake hospital</div>
     </div>
 </footer>
 
