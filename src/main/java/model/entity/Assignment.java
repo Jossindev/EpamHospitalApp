@@ -2,7 +2,7 @@ package model.entity;
 
 import model.dao.repository.AssignmentTypeDAOImpl;
 import model.dao.repository.DoctorDAOImpl;
-import model.dao.repository.TreatmentDAOImpl;
+import model.dao.repository.RoleDAOImpl;
 
 import java.util.Objects;
 
@@ -25,6 +25,7 @@ public class Assignment {
         this.description = description;
         this.type = detectAssignmentType(type);
     }
+
 
     public int getId() {
         return id;
@@ -97,6 +98,7 @@ public class Assignment {
     public Doctor detectDoctor(int id) {
         return new DoctorDAOImpl().findDoctorById(id);
     }
+
     public AssignmentType detectAssignmentType(int id) {
         return new AssignmentTypeDAOImpl().findById(id);
     }

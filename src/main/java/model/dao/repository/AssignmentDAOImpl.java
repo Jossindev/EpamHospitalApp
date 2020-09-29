@@ -9,7 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class AssignmentDAOImpl implements model.dao.interfaces.AssignmentDAOImpl {
+public class AssignmentDAOImpl implements model.dao.interfaces.AssignmentDAO {
     private static Logger logger = Logger.getLogger(AssignmentDAOImpl.class);
     private static final String FIND_BY_ID = "select * from assignment where id =?";
     private static final String UPDATE_EXECUTOR = "update assignment set executor_id = ? where id = ?";
