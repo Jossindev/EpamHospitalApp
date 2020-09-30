@@ -4,18 +4,8 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
     <welcome-file-list>
-        <welcome-file>/first-jsp.jsp</welcome-file>
+        <welcome-file>/firstJsp.jsp</welcome-file>
     </welcome-file-list>
-
-    <servlet>
-        <servlet-name>FirstJsp</servlet-name>
-        <jsp-file>/firstJsp.jsp</jsp-file>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>FirstJsp</servlet-name>
-        <url-pattern>/</url-pattern>
-    </servlet-mapping>
 
     <servlet-mapping>
         <servlet-name>default</servlet-name>

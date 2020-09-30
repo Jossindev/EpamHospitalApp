@@ -33,6 +33,7 @@ public class AssignmentDAOImpl implements model.dao.interfaces.AssignmentDAO {
                             resultSet.getString("description"),
                             resultSet.getInt("type_id"));
                 }
+
             }
         } catch (SQLException e) {
             logger.error("Can not find by Id", e);

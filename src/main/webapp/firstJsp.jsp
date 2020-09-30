@@ -37,7 +37,7 @@
                             </form>
                         </div>
                     </li>
-                    <li><a href="test.jsp"><fmt:message key="home" /></a></li>
+                    <li><a href="#"><fmt:message key="home" /></a></li>
                     <li><a href="aboutUs.jsp"><fmt:message key="aboutUs" /></a></li>
                     <li><a href="register.jsp" class="btn"><fmt:message key="login" /></a></li>
                 </ul>
@@ -88,8 +88,8 @@
         <div class="row">
             <div class="col l6 s12">
                 <h5 class="white-text"><fmt:message key="hospitalProject"/></h5>
-                <p class="grey-text text-lighten-4">This project was created in Autumn 2020<br>
-                    By Bohdan Boyko developer</p>
+                <p class="grey-text text-lighten-4"><fmt:message key="timeCreate"/><br>
+                    <fmt:message key="developer"/></p>
             </div>
             <div class="col l4 offset-l2 s12">
                 <h5 class="white-text"><fmt:message key="connect"/> </h5>

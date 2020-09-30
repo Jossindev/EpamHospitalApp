@@ -17,7 +17,7 @@ public class UserDAOImpl implements UserDAO {
     private final static String INSERT_USER = "insert into user(name, surname, birthday, email, password, role_id)  " +
             "values (?, ?, ?, ?, ?, ?)";
 
-    private static Logger logger = Logger.getLogger(UserDAOImpl.class);
+    private static final Logger logger = Logger.getLogger(UserDAOImpl.class);
 
     public UserDAOImpl() {
     }
