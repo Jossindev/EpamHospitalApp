@@ -20,7 +20,7 @@ public class RoleService {
     public static Role getRoleById(int roleId) {
         try {
             TransactionManager.beginTransaction();
-            Role role= roleDao.findById(roleId);
+            Role role = roleDao.findById(roleId);
             TransactionManager.commitTransaction();
             return role;
         } catch (RuntimeSQLException e) {
@@ -33,7 +33,7 @@ public class RoleService {
     public static Role getRoleByName(String roleName) {
         try {
             TransactionManager.beginTransaction();
-            Role role= roleDao.findByName(roleName);
+            Role role = roleDao.findByName(roleName);
             TransactionManager.commitTransaction();
             return role;
         } catch (RuntimeSQLException e) {
