@@ -1,5 +1,4 @@
-import model.dao.repository.DoctorDAOImpl;
-import model.dao.repository.UserDAOImpl;
+import model.dao.UserDAOImpl;
 import org.apache.log4j.BasicConfigurator;
 
 

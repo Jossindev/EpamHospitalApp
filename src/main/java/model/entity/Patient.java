@@ -1,7 +1,7 @@
 package model.entity;
 
-import model.dao.repository.DoctorDAOImpl;
-import model.dao.repository.TreatmentDAOImpl;
+import model.dao.DoctorDAOImpl;
+import model.dao.TreatmentDAOImpl;
 
 import java.util.Objects;
 

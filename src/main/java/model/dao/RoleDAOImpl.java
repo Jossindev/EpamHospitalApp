@@ -1,8 +1,8 @@
-package model.dao.repository;
+package model.dao;
 
 import model.dao.interfaces.RoleDAO;
 import model.entity.Role;
-import utils.PoolConnections;
+import model.database.PoolConnections;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

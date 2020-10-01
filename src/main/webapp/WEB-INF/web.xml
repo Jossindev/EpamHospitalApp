@@ -11,4 +11,9 @@
         <servlet-name>default</servlet-name>
         <url-pattern>*.jpg</url-pattern>
     </servlet-mapping>
+
+    <error-page>
+        <exception-type>java.lang.Exception</exception-type>
+        <location>/notFound.jsp</location>
+    </error-page>
 </web-app>

@@ -1,6 +1,6 @@
 package utils.factory;
 
-import model.dao.repository.*;
+import model.dao.*;
 
 public class DaoFactoryImpl implements DaoFactory {
 

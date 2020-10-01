@@ -1,8 +1,7 @@
 package model.entity;
 
-import model.dao.repository.AssignmentTypeDAOImpl;
-import model.dao.repository.DoctorDAOImpl;
-import model.dao.repository.RoleDAOImpl;
+import model.dao.AssignmentTypeDAOImpl;
+import model.dao.DoctorDAOImpl;
 
 import java.util.Objects;
 

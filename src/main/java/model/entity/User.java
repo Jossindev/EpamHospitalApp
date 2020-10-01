@@ -1,6 +1,6 @@
 package model.entity;
 
-import model.dao.repository.RoleDAOImpl;
+import model.dao.RoleDAOImpl;
 
 import java.sql.Date;
 import java.util.Objects;

@@ -1,6 +1,6 @@
 package model.entity;
 
-import model.dao.repository.AssignmentDAOImpl;
+import model.dao.AssignmentDAOImpl;
 
 import java.util.Objects;
 

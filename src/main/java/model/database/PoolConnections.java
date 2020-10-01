@@ -1,4 +1,4 @@
-package utils;
+package model.database;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;

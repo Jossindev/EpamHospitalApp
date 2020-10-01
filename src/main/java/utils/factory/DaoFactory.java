@@ -1,6 +1,6 @@
 package utils.factory;
 
-import model.dao.repository.*;
+import model.dao.*;
 
 public interface DaoFactory {
     AssignmentDAOImpl createAssignmentDao();

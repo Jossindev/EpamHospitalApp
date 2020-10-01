@@ -1,9 +1,9 @@
-package model.dao.repository;
+package model.dao;
 
 import model.dao.interfaces.AssignmentTypeDAO;
 import model.entity.AssignmentType;
 import org.apache.log4j.Logger;
-import utils.PoolConnections;
+import model.database.PoolConnections;
 
 import java.sql.*;
 import java.util.ArrayList;
