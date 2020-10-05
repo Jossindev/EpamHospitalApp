@@ -1,6 +1,7 @@
+package utils.factory.provider.creator;
+
 import command.provider.GetCommandProvider;
-import command.provider.factory.CommandProvider;
-import command.provider.factory.Creator;
+import utils.factory.provider.CommandProvider;
 
 public class GetCommandCreator implements Creator {
     @Override

@@ -1,4 +1,4 @@
-package command.provider.factory;
+package utils.factory.provider;
 
 import command.HospitalCommand;
 

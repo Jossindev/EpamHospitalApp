@@ -1,6 +1,8 @@
 import command.HospitalCommand;
-import command.provider.factory.CommandProvider;
-import command.provider.factory.Creator;
+import utils.factory.provider.CommandProvider;
+import utils.factory.provider.creator.Creator;
+import utils.factory.provider.creator.GetCommandCreator;
+import utils.factory.provider.creator.PostCommandCreator;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
