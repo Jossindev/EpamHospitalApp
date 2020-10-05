@@ -27,7 +27,7 @@
     <div class="col m6 offset-m3 l4 offset-l4 s12">
         <div class="card-panel z-depth-5" style="min-height: 90vh; margin-top: 4vh; position: relative">
             <div class="valign-wrapper" style="margin-top: 20%">
-                <form action="firstJsp.jsp" method="POST" class="center-block" style="text-align: center; min-width: 80%">
+                <form method="post" action=${pageContext.request.contextPath}/login class="center-block" style="text-align: center; min-width: 80%">
                     <h1><fmt:message key="login"/> </h1>
                     <h4><fmt:message key="welcome"/></h4>
                     <div class="input-field" style="margin-top: 40px">

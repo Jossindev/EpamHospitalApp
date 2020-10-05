@@ -10,10 +10,9 @@ import utils.factory.DaoFactoryImpl;
 
 public class RoleService {
     private static DaoFactory daoFactory = DaoFactoryImpl.getInstance();
-    private static UserDAOImpl userDao = daoFactory.createUserDao();
     private static RoleDAOImpl roleDao = daoFactory.createRoleDao();
 
-    private RoleService() {
+    public RoleService() {
 
     }
 

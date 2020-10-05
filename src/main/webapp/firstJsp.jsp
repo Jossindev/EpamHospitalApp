@@ -39,7 +39,7 @@
                     </li>
                     <li><a href="#"><fmt:message key="home" /></a></li>
                     <li><a href="aboutUs.jsp"><fmt:message key="aboutUs" /></a></li>
-                    <li><a href="register.jsp" class="btn"><fmt:message key="login" /></a></li>
+                    <li><a href="login.jsp.jsp" class="btn"><fmt:message key="login" /></a></li>
                 </ul>
             </div>
         </div>
@@ -50,8 +50,6 @@
         <li><a href="aboutUs.jsp"><fmt:message key="aboutUs" /></a></li>
     </ul>
 </header>
-
-<!-- Banner image-->
 
 <section class="container section scrollspy" id="photos">
     <div class="col s12 l4">
