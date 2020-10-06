@@ -30,6 +30,9 @@
                 <form method="post" action=${pageContext.request.contextPath}/login class="center-block" style="text-align: center; min-width: 80%">
                     <h1><fmt:message key="login"/> </h1>
                     <h4><fmt:message key="welcome"/></h4>
+                    <% if (request.getAttribute("bad_getaway") != null ) {%>
+                    <p class="red-text"><fmt:message key="incorrectRegister" /></p>
+                    <% } %>
                     <div class="input-field" style="margin-top: 40px">
                         <i class="material-icons prefix">email</i>
                         <input type="text" id="email" name="email">

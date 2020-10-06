@@ -4,6 +4,7 @@ import model.entity.User;
 import service.impl.UserService;
 
 import javax.servlet.http.HttpSession;
+import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -14,12 +15,19 @@ public class AuthValidation {
     private static final String PASSWORD_REGEX = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{5,15}$";
 
     public boolean login(String username, String rawPassword, HttpSession session) {
+        Optional<User> user = userService.signIn(username, rawPassword);
+
+        if(!user.isPresent()) {
+            return false;
+        }
+
         if (username == null || rawPassword == null) {
             return false;
         }
-        User user = userService.signIn(username, rawPassword);
-        session.setAttribute("role", user.getRoleId().getName());
-        session.setAttribute("user_id", user.getId());
+
+
+        session.setAttribute("role", user.get().getRoleId().getName());
+        session.setAttribute("user_id", user.get().getId());
         return true;
     }
 

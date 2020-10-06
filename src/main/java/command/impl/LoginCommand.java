@@ -28,6 +28,7 @@ public class LoginCommand implements HospitalCommand {
             response.setHeader("Location", HospitalPaths.HOME_HOSPITAL);
             return;
         }
+        request.setAttribute("bad_getaway", true);
         request.getRequestDispatcher(HospitalPages.SIGN_IN).forward(request, response);
     }
 }

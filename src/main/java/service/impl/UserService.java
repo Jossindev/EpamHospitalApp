@@ -7,6 +7,7 @@ import utils.factory.DaoFactory;
 import utils.factory.DaoFactoryImpl;
 
 import java.util.List;
+import java.util.Optional;
 
 public class UserService {
     private static final DaoFactory daoFactory = DaoFactoryImpl.getInstance();
@@ -24,7 +25,7 @@ public class UserService {
         return userDao.findById(userId);
     }
 
-    public User signIn(String login, String password) {
+    public Optional<User> signIn(String login, String password) {
         return userDao.findByEmailAndPass(login, password);
     }
 

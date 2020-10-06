@@ -30,6 +30,9 @@
             <div class="valign-wrapper">
                 <form action="${pageContext.request.contextPath}/register" method="POST" class="center-block" style="text-align: center">
                     <h1><fmt:message key="register"/></h1>
+                    <% if (request.getAttribute("bad_getaway") != null ) {%>
+                    <p class="red-text"><fmt:message key="incorrectRegister" /></p>
+                    <% } %>
                     <div class="input-field" style="margin-top: 40px">
                         <i class="material-icons prefix">account_circle</i>
                         <input type="text" id="name" name="name" >

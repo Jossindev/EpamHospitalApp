@@ -36,9 +36,7 @@ public class RegisterCommand implements HospitalCommand {
             return;
         }
 
-        //  request.setAttribute(BAD_CREDENTIALS, true);
-        System.out.println("register  not complete");
-        System.out.println(regUser);
+        request.setAttribute("bad_getaway", true);
         request.getRequestDispatcher(HospitalPages.SIGN_UP).forward(request, response);
     }
 }

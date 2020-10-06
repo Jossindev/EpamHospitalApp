@@ -9,6 +9,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.sql.Date;
 import java.util.List;
+import java.util.Optional;
 
 public class UserDAOImpl implements UserDAO {
     private final static String FIND_BY_ID = "select * from user where id =?";
@@ -49,7 +50,7 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public User findByEmailAndPass(String email, String password) {
+    public Optional<User> findByEmailAndPass(String email, String password) {
         User user = null;
 
         try (Connection connection = PoolConnections.getConnection();
@@ -57,7 +58,7 @@ public class UserDAOImpl implements UserDAO {
             statement.setString(1, email);
             statement.setString(2, password);
             System.out.println("find user");
-            System.out.println(email+ " " + password);
+            System.out.println(email + " " + password);
             try (ResultSet rs = statement.executeQuery()) {
                 while (rs.next()) {
                     user = new User(rs.getInt("id"),
@@ -67,12 +68,13 @@ public class UserDAOImpl implements UserDAO {
                             rs.getString("email"),
                             rs.getString("password"),
                             rs.getInt("role_id"));
+                    return Optional.of(user);
                 }
             }
         } catch (SQLException e) {
             logger.error("Can not find by name and email ", e);
         }
-        return user;
+        return Optional.empty();
     }
 
     @Override
