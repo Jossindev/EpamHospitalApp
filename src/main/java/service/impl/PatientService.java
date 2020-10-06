@@ -1,4 +1,4 @@
-package service;
+package service.impl;
 
 import model.dao.interfaces.PatientDAOImpl;
 import model.entity.Patient;

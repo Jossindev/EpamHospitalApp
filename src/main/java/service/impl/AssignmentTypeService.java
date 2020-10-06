@@ -1,4 +1,4 @@
-package service;
+package service.impl;
 
 import model.dao.AssignmentTypeDAOImpl;
 import model.entity.AssignmentType;

@@ -14,9 +14,25 @@ public class User {
     private String password;
     private Role roleId;
 
-    public User() {}
+    public User() {
+    }
+
     public User(int id) {
         this.id = id;
+    }
+
+    public User(int id, String name, String surname, Date birthday, String email, String password, int roleId) {
+        this(name, surname, birthday, email, password, roleId);
+        this.id = id;
+    }
+
+    public User(String name, String surname, Date birthday, String email, String password, int roleId) {
+        this.name = name;
+        this.surname = surname;
+        this.birthday = birthday;
+        this.email = email;
+        this.password = password;
+        this.roleId = detectRole(roleId);
     }
 
     public User(String name, String surname, Date birthday, String email, String password, Role roleId) {
@@ -26,16 +42,6 @@ public class User {
         this.email = email;
         this.password = password;
         this.roleId = roleId;
-    }
-
-    public User(int id, String name, String surname, Date birthday, String email, String password, int roleId) {
-        this.id = id;
-        this.name = name;
-        this.surname = surname;
-        this.birthday = birthday;
-        this.email = email;
-        this.password = password;
-        this.roleId = detectRole(roleId);
     }
 
     public Role detectRole(int role) {

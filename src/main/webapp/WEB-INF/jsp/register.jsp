@@ -32,32 +32,32 @@
                     <h1><fmt:message key="register"/></h1>
                     <div class="input-field" style="margin-top: 40px">
                         <i class="material-icons prefix">account_circle</i>
-                        <input type="text" id="name">
+                        <input type="text" id="name" name="name" >
                         <label for="name"><fmt:message key="name"/></label>
                     </div>
                     <div class="input-field" >
                         <i class="material-icons prefix">account_circle</i>
-                        <input type="text" id="surname">
+                        <input type="text" id="surname" name="surname">
                         <label for="surname"><fmt:message key="surname"/></label>
                     </div>
                     <div class="input-field">
                         <i class="material-icons prefix">email</i>
-                        <input type="email" id="email">
+                        <input type="email" id="email" name="email">
                         <label for="email"><fmt:message key="email"/></label>
                     </div>
                     <div class="input-field">
                         <i class="material-icons prefix">date_range</i>
-                        <input type="text" id="birthday">
+                        <input type="text" id="birthday" name="birthday">
                         <label for="birthday"><fmt:message key="birthday"/></label>
                     </div>
                     <div class="input-field">
                         <i class="material-icons prefix">lock</i>
-                        <input type="password" id="password">
+                        <input type="password" id="password" name="password">
                         <label for="password"><fmt:message key="pass"/></label>
                     </div>
                     <div class="input-field">
                         <i class="material-icons prefix">vpn_key</i>
-                        <input type="password" id="confirm-password">
+                        <input type="password" id="confirm-password" name="confirm-password">
                         <label for="confirm-password"><fmt:message key="repeatPass"/></label>
                     </div>
                     <div class="left-align" style="margin-left: 1vh">
@@ -65,19 +65,19 @@
                         <div class="input-field">
                             <p>
                                 <label>
-                                    <input class="with-gap" name="group1" type="radio" checked />
+                                    <input class="with-gap" name="role" type="radio" value="1" checked />
                                     <span><fmt:message key="patients"/></span>
                                 </label>
                             </p>
                             <p>
                                 <label>
-                                    <input class="with-gap" name="group1" type="radio" />
+                                    <input class="with-gap" name="role" type="radio" value="2" />
                                     <span><fmt:message key="doctors"/></span>
                                 </label>
                             </p>
                             <p>
                                 <label>
-                                    <input class="with-gap" name="group1" type="radio" />
+                                    <input class="with-gap" name="role" type="radio" value="3" />
                                     <span><fmt:message key="admins"/></span>
                                 </label>
                             </p>

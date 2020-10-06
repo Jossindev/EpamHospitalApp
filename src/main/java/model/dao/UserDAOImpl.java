@@ -56,7 +56,8 @@ public class UserDAOImpl implements UserDAO {
              PreparedStatement statement = connection.prepareStatement(FIND_BY_EMAIL_AND_PASS)) {
             statement.setString(1, email);
             statement.setString(2, password);
-
+            System.out.println("find user");
+            System.out.println(email+ " " + password);
             try (ResultSet rs = statement.executeQuery()) {
                 while (rs.next()) {
                     user = new User(rs.getInt("id"),
@@ -75,7 +76,7 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public void addUser(User user) {
+    public boolean addUser(User user) {
         try (Connection connection = PoolConnections.getConnection()) {
             PreparedStatement statement = connection.prepareStatement(INSERT_USER, Statement.RETURN_GENERATED_KEYS);
             statement.setString(1, user.getName());
@@ -85,9 +86,12 @@ public class UserDAOImpl implements UserDAO {
             statement.setString(5, user.getPassword());
             statement.setInt(6, user.getRoleId().getId());
             statement.execute();
+            return true;
         } catch (SQLException e) {
             logger.error("Can not insert into user table ", e);
+
         }
+        return false;
     }
 
     @Override

@@ -9,7 +9,7 @@ public interface UserDAO {
 
     public User findByEmailAndPass(String email, String password);
 
-    public void addUser(User user);
+    public boolean addUser(User user);
 
     public User findById(int id);
 }
