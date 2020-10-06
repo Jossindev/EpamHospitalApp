@@ -29,22 +29,33 @@
     <nav>
         <div class="container">
             <div class="nav-wrapper">
-                <a href="firstJsp.jsp" class="brand-logo"><i class="material-icons">local_hospital</i><fmt:message key="hospital" /></a>
+                <a href="${pageContext.request.contextPath}/" class="brand-logo"><i class="material-icons">local_hospital</i><fmt:message key="hospital" /></a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="firstJsp.jsp"><fmt:message key="home" /></a></li>
-                    <li><a href="#!"><fmt:message key="aboutUs" /></a></li>
-                    <li><a href="register.jsp" class="btn"><fmt:message key="login" /></a></li>
+                    <li>
+                        <div>
+                            <form>
+                                <select id="language" name="language" onchange="submit()">
+                                    <option  value="en" ${language == 'en' ? 'selected' : ''}>English</option>
+                                    <option  value="ua" ${language == 'ua' ? 'selected' : ''}>Українська</option>
+                                </select>
+                            </form>
+                        </div>
+                    </li>
+                    <li><a href="#"><fmt:message key="home" /></a></li>
+                    <li><a href="${pageContext.request.contextPath}/aboutUs"><fmt:message key="aboutUs" /></a></li>
+                    <li><a href="${pageContext.request.contextPath}/login" class="btn"><fmt:message key="login" /></a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
     <ul class="sidenav" id="mobile-demo">
-        <li><a href="firstJsp.jsp"><fmt:message key="home" /></a></li>
-        <li><a href="#"><fmt:message key="aboutUs" /></a></li>
+        <li><a href="${pageContext.request.contextPath}/"><fmt:message key="home" /></a></li>
+        <li><a href="${pageContext.request.contextPath}/aboutUs"><fmt:message key="aboutUs" /></a></li>
     </ul>
 </header>
+
 
 <!--   Card elements  -->
 <div class="row">

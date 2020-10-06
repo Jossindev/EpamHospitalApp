@@ -3,9 +3,6 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
-    <welcome-file-list>
-        <welcome-file>/firstJsp.jsp</welcome-file>
-    </welcome-file-list>
 
     <servlet-mapping>
         <servlet-name>default</servlet-name>
@@ -14,21 +11,10 @@
 
     <error-page>
         <exception-type>java.lang.Exception</exception-type>
-        <location>/errorPage.jsp</location>
+        <location>/WEB-INF/jsp/errorPage.jsp</location>
     </error-page>
     <error-page>
         <error-code>404</error-code>
-        <location>/notFound.jsp</location>
+        <location>/WEB-INF/jsp/notFound.jsp</location>
     </error-page>
-
-    <filter>
-        <filter-name>Filter</filter-name>
-        <filter-class>AuthFilter</filter-class>
-
-    </filter>
-
-    <filter-mapping>
-        <filter-name>Filter</filter-name>
-        <url-pattern>/login</url-pattern>
-    </filter-mapping>
 </web-app>

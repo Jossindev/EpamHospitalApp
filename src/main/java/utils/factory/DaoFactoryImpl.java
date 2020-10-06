@@ -47,5 +47,4 @@ public class DaoFactoryImpl implements DaoFactory {
     public UserDAOImpl createUserDao() {
         return new UserDAOImpl();
     }
-
 }

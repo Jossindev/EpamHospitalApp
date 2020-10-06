@@ -28,7 +28,7 @@
     <div class="col m6 offset-m3 l4 offset-l4 s12">
         <div class="card-panel z-depth-5" style="min-height: 90vh; margin-top: 4vh; position: relative">
             <div class="valign-wrapper">
-                <form action="firstJsp.jsp" method="POST" class="center-block" style="text-align: center">
+                <form action="${pageContext.request.contextPath}/register" method="POST" class="center-block" style="text-align: center">
                     <h1><fmt:message key="register"/></h1>
                     <div class="input-field" style="margin-top: 40px">
                         <i class="material-icons prefix">account_circle</i>
@@ -72,23 +72,23 @@
                             <p>
                                 <label>
                                     <input class="with-gap" name="group1" type="radio" />
-                                    <span><fmt:message key="nurses"/></span>
+                                    <span><fmt:message key="doctors"/></span>
                                 </label>
                             </p>
                             <p>
                                 <label>
                                     <input class="with-gap" name="group1" type="radio" />
-                                    <span><fmt:message key="doctors"/></span>
+                                    <span><fmt:message key="admins"/></span>
                                 </label>
                             </p>
                         </div>
                     </div>
-                    <p><fmt:message key="haveAccount"/> <a href="login.jsp"><fmt:message key="login"/></a></p>
+                    <p><fmt:message key="haveAccount"/> <a href="${pageContext.request.contextPath}/login"><fmt:message key="login"/></a></p>
                     <div class="input-field center">
                         <button class="btn-large purple darken-4" type="submit"><fmt:message key="createAccount"/></button>
                     </div>
                 </form>
-                <a style="position: absolute; bottom: 2%" href="firstJsp.jsp"><fmt:message key="home"/> </a>
+                <a style="position: absolute; bottom: 2%" href="${pageContext.request.contextPath}/"><fmt:message key="home"/> </a>
             </div>
         </div>
     </div>

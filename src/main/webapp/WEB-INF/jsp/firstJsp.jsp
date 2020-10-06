@@ -24,7 +24,7 @@
     <nav>
         <div class="container">
             <div class="nav-wrapper">
-                <a href="firstJsp.jsp" class="brand-logo"><i class="material-icons">local_hospital</i><fmt:message key="hospital" /></a>
+                <a href="${pageContext.request.contextPath}/login" class="brand-logo"><i class="material-icons">local_hospital</i><fmt:message key="hospital" /></a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down">
                     <li>
@@ -38,16 +38,16 @@
                         </div>
                     </li>
                     <li><a href="#"><fmt:message key="home" /></a></li>
-                    <li><a href="aboutUs.jsp"><fmt:message key="aboutUs" /></a></li>
-                    <li><a href="login.jsp.jsp" class="btn"><fmt:message key="login" /></a></li>
+                    <li><a href="${pageContext.request.contextPath}/aboutUs"><fmt:message key="aboutUs" /></a></li>
+                    <li><a href="${pageContext.request.contextPath}/login" class="btn"><fmt:message key="login" /></a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
     <ul class="sidenav" id="mobile-demo">
-        <li><a href="#"><fmt:message key="home" /></a></li>
-        <li><a href="aboutUs.jsp"><fmt:message key="aboutUs" /></a></li>
+        <li><a href="${pageContext.request.contextPath}/"><fmt:message key="home" /></a></li>
+        <li><a href="${pageContext.request.contextPath}/aboutUs"><fmt:message key="aboutUs" /></a></li>
     </ul>
 </header>
 

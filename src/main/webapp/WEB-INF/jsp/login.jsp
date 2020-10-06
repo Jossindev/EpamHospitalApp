@@ -40,12 +40,12 @@
                         <input type="password" id="password" name="password">
                         <label for="password"><fmt:message key="pass"/></label>
                     </div>
-                    <p><fmt:message key="noAccount"/> <a href="register.jsp"> <fmt:message key="register"/></a></p>
+                    <p><fmt:message key="noAccount"/> <a href="${pageContext.request.contextPath}/register"> <fmt:message key="register"/></a></p>
                     <div class="input-field center">
                         <button class="btn-large indigo darken-4" type="submit"><fmt:message key="login"/></button>
                     </div>
                 </form>
-                <a style="position: absolute; bottom: 2%" href="firstJsp.jsp"><fmt:message key="home"/></a>
+                <a style="position: absolute; bottom: 2%" href="${pageContext.request.contextPath}/"><fmt:message key="home"/></a>
             </div>
         </div>
     </div>
