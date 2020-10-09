@@ -17,14 +17,13 @@ public class AuthValidation {
     public boolean login(String username, String rawPassword, HttpSession session) {
         Optional<User> user = userService.signIn(username, rawPassword);
 
-        if(!user.isPresent()) {
+        if (!user.isPresent()) {
             return false;
         }
 
         if (username == null || rawPassword == null) {
             return false;
         }
-
 
         session.setAttribute("role", user.get().getRoleId().getName());
         session.setAttribute("user_id", user.get().getId());

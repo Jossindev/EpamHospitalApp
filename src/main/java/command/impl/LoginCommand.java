@@ -12,7 +12,6 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 
-
 public class LoginCommand implements HospitalCommand {
     AuthValidation validation = new AuthValidation();
 
@@ -25,10 +24,25 @@ public class LoginCommand implements HospitalCommand {
         boolean isSuccessful = validation.login(email, password, session);
         if (isSuccessful) {
             response.setStatus(HttpServletResponse.SC_MOVED_PERMANENTLY);
-            response.setHeader("Location", HospitalPaths.HOME_HOSPITAL);
+            response.setHeader("Location", defineRole(session, response));
             return;
         }
+
         request.setAttribute("bad_getaway", true);
         request.getRequestDispatcher(HospitalPages.SIGN_IN).forward(request, response);
+    }
+
+    private String defineRole(HttpSession session, HttpServletResponse response) {
+        String currentRole = (String) session.getAttribute("role");
+
+        switch (currentRole) {
+            case "ADMIN":
+                return HospitalPaths.ADMIN_HOME;
+            case "DOCTOR":
+                return HospitalPaths.DOCTOR_HOME;
+            case "PATIENT":
+                return HospitalPaths.PATIENT_HOME;
+        }
+        return "/";
     }
 }

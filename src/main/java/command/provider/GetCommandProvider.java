@@ -1,9 +1,7 @@
 package command.provider;
 
 import command.HospitalCommand;
-import command.impl.AboutCommand;
-import command.impl.HomeCommand;
-import command.impl.LogoutCommand;
+import command.impl.*;
 import constant.HospitalPages;
 import constant.HospitalPaths;
 import utils.factory.provider.CommandProvider;
@@ -26,6 +24,10 @@ public class GetCommandProvider implements CommandProvider {
         command.put(HospitalPaths.ABOUT, new AboutCommand());
         command.put(HospitalPaths.LOGIN, (req, res) -> forward(req, res, HospitalPages.SIGN_IN));
         command.put(HospitalPaths.REGISTER, (req, res) -> forward(req, res, HospitalPages.SIGN_UP));
+        command.put(HospitalPaths.ADMIN_HOME, new AdminHomepage());
+        command.put(HospitalPaths.DOCTOR_HOME, new DoctorHomepage());
+        command.put(HospitalPaths.NURSE_HOME, new NurseHomepage());
+        command.put(HospitalPaths.PATIENT_HOME, new PatientHomepage());
     }
 
     @Override

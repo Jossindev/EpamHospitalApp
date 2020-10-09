@@ -42,7 +42,7 @@
                             </form>
                         </div>
                     </li>
-                    <li><a href="#"><fmt:message key="home" /></a></li>
+                    <li><a href="/"><fmt:message key="home" /></a></li>
                     <li><a href="${pageContext.request.contextPath}/aboutUs"><fmt:message key="aboutUs" /></a></li>
                     <li><a href="${pageContext.request.contextPath}/login" class="btn"><fmt:message key="login" /></a></li>
                 </ul>
@@ -105,36 +105,13 @@
     </div>
 </div>
 
-<!-- Footer -->
-<footer class="page-footer">
-    <div class="container">
-        <div class="row">
-            <div class="col l6 s12">
-                <h5 class="white-text"><fmt:message key="hospitalProject"/></h5>
-                <p class="grey-text text-lighten-4"><fmt:message key="timeCreate"/><br>
-                    <fmt:message key="developer"/></p>
-            </div>
-            <div class="col l4 offset-l2 s12">
-                <h5 class="white-text"><fmt:message key="connect"/> </h5>
-                <ul>
-                    <li><a class="grey-text text-lighten-3" href="https://github.com/Jossindev">GitHub</a></li>
-                    <li><a class="grey-text text-lighten-3" href="https://www.linkedin.com/in/bohdan-boiko-07773b1a4/">LinkedIn</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="footer-copyright">
-        <div class="container">
-            © 2020 <fmt:message key="fakeHospital"/>
-        </div>
-    </div>
-</footer>
+<jsp:include page="element/footer.jsp" />
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 <script>
     $(document).ready(function(){
+        $('select').formSelect();
         $('.sidenav').sidenav();
     });
 </script>
