@@ -2,15 +2,18 @@ package model.entity;
 
 import model.dao.DoctorDAOImpl;
 import model.dao.TreatmentDAOImpl;
+import model.dao.UserDAOImpl;
 
 import java.util.Objects;
 
 public class Patient {
     private int id;
+    private User user;
+
     private Doctor doctor;
+
     private Doctor nurse;
     private Treatment treatment;
-
     public Patient(int id) {
         this.id = id;
     }
@@ -21,19 +24,28 @@ public class Patient {
         this.nurse = nurse;
         this.treatment = treatment;
     }
-    public Patient(int id, int doctor, int nurse, int treatment) {
+
+    public Patient(int id, int user, int doctor, int nurse, int treatment) {
         this.id = id;
+        this.user = detectUser(user);
         this.doctor = detectDoctor(doctor);
         this.nurse = detectDoctor(nurse);
         this.treatment = detectTreatment(treatment);
     }
-
     public int getId() {
         return id;
     }
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public User getUser() {
+        return user;
     }
 
     public Doctor getDoctor() {
@@ -91,4 +103,6 @@ public class Patient {
     public Treatment detectTreatment(int id) {
         return new TreatmentDAOImpl().findById(id);
     }
+    public User detectUser(int id) { return new UserDAOImpl().findById(id).get(); }
+
 }

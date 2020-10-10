@@ -11,8 +11,7 @@ public class AssignmentTypeService {
     private static final DaoFactory daoFactory = DaoFactoryImpl.getInstance();
     private static final AssignmentTypeDAOImpl assignmentTypeDAO = daoFactory.createAssignmentTypeDAO();
 
-    public AssignmentTypeService() {
-    }
+    public AssignmentTypeService() { }
 
     public AssignmentType findById(int id) {
         return assignmentTypeDAO.findById(id);

@@ -12,4 +12,8 @@ public interface PatientDAOImpl {
     void assignNurseToPatient(int nurseId, int patientId);
 
     void assignTreatmentToPatient(int treatmentId, int patientId);
+
+    List<Patient> findAllPatients();
+
+    public boolean insertPatient(int id, int patientId);
 }

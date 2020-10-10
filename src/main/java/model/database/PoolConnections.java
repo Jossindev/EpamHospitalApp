@@ -1,6 +1,5 @@
 package model.database;
 
-
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
@@ -15,17 +14,16 @@ public class PoolConnections {
     static {
         HikariConfig config = new HikariConfig();
 
-        config.setJdbcUrl( resourceBundle.getString("url"));
-        config.setUsername(resourceBundle.getString("user") );
-        config.setPassword(resourceBundle.getString("password") );
+        config.setJdbcUrl(resourceBundle.getString("url"));
+        config.setUsername(resourceBundle.getString("user"));
+        config.setPassword(resourceBundle.getString("password"));
         config.setMaximumPoolSize(15);
         config.setDriverClassName("com.mysql.jdbc.Driver");
 
-        ds = new HikariDataSource( config );
+        ds = new HikariDataSource(config);
     }
 
-    public PoolConnections() {
-    }
+    public PoolConnections() { }
 
     public static Connection getConnection() throws SQLException {
         return ds.getConnection();

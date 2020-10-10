@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Bohdan
-  Date: 30.09.2020
-  Time: 15:41
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -40,12 +33,7 @@
 <main>
     <div class="container">
         <ul class="collection with-header">
-            <li class="collection-header"><h4>Name Patient <a href="#" class="btn right red darken-4">hospital card</a></h4> </li>
-            <li class="collection-item ">
-                <span class="title">Name</span>
-                <p>Surname</p>
-                <p>Date</p>
-            </li>
+            <li class="collection-header"><h4>Name Patient <a href="#" class="btn right red darken-4"><fmt:message key="hospitalCard" /></a></h4> </li>
             <li class="collection-item ">
                 <span class="title">Name</span>
                 <p>Surname</p>

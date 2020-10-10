@@ -13,9 +13,7 @@ public class TreatmentDAOImpl implements model.dao.interfaces.TreatmentDAOImpl {
     private static Logger logger = Logger.getLogger(TreatmentDAOImpl.class);
     private static final String FIND_BY_ID = "select * from treatment where id =?";
 
-    public TreatmentDAOImpl() {
-    }
-
+    public TreatmentDAOImpl() { }
 
     @Override
     public Treatment findById(int id) {

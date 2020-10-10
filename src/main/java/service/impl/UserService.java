@@ -1,6 +1,5 @@
 package service.impl;
 
-
 import model.dao.UserDAOImpl;
 import model.entity.User;
 import utils.factory.DaoFactory;
@@ -13,15 +12,13 @@ public class UserService {
     private static final DaoFactory daoFactory = DaoFactoryImpl.getInstance();
     private static final UserDAOImpl userDao = daoFactory.createUserDao();
 
-    public UserService() {
-
-    }
+    public UserService() { }
 
     public boolean registerUser(User user) {
         return userDao.addUser(user);
     }
 
-    public User getUserById(int userId) {
+    public Optional<User> getUserById(int userId) {
         return userDao.findById(userId);
     }
 

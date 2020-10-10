@@ -30,7 +30,6 @@ public class AuthValidation {
         return true;
     }
 
-
     public boolean register(User user, String confirmPassword) {
         if (user.getName() == null || user.getSurname() == null || user.getBirthday() == null
                 || user.getEmail() == null || user.getPassword() == null || user.getRoleId() == null) {

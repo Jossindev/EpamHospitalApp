@@ -16,8 +16,7 @@ public class RoleDAOImpl implements RoleDAO {
     private static final String FIND_ROLE_BY_ID = "select * from role where id = ?";
     private static final String FIND_ROLE_BY_NAME = "select * from role where name = ?";
 
-    public RoleDAOImpl() {
-    }
+    public RoleDAOImpl() { }
 
     @Override
     public Role findById(int id) {

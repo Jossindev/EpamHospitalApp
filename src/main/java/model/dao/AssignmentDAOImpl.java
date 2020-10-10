@@ -10,7 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class AssignmentDAOImpl implements model.dao.interfaces.AssignmentDAO {
-    private static Logger logger = Logger.getLogger(AssignmentDAOImpl.class);
+    private static final Logger logger = Logger.getLogger(AssignmentDAOImpl.class);
     private static final String FIND_BY_ID = "select * from assignment where id =?";
     private static final String UPDATE_EXECUTOR = "update assignment set executor_id = ? where id = ?";
     private static final String UPDATE_REPORTER = "update assignment set reporter_id = ? where id = ?";

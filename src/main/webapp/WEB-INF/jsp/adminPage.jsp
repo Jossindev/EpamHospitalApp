@@ -1,12 +1,6 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Bohdan
-  Date: 06.10.2020
-  Time: 15:41
-  To change this template use File | Settings | File Templates.
---%>
-
-
+<%@ page import="model.entity.Doctor" %>
+<%@ page import="java.util.List" %>
+<%@ page import="model.entity.Patient" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -40,14 +34,11 @@
 <jsp:include page="element/header.jsp" />
 
 <main>
-
-    <!-- Banner image-->
-
     <div class="container">
         <ul class="collection with-header">
             <li class="collection-header"><h4>Admin
-                <a href="#" style="margin: 0 1%;" class="btn right red darken-4">register doctor</a>
-                <a href="#" class="btn right red darken-4">register patient</a>
+                <a href="${pageContext.request.contextPath}/admin/registerDoctor" style="margin: 0 1%;" class="btn right red darken-4"><fmt:message key="registerDoctor" /></a>
+                <a href="${pageContext.request.contextPath}/admin/registerPatient" class="btn right red darken-4"><fmt:message key="registerPatient" /></a>
             </h4> </li>
         </ul>
     </div>
@@ -56,32 +47,31 @@
         <div class="row">
             <div class="col s12">
                 <ul class="tabs">
-                    <li class="tab col s6"><a href="#test1">Doctors</a></li>
-                    <li class="tab col s6"><a href="#test2">Patients</a></li>
+                    <li class="tab col s6"><a href="#test1"><fmt:message key="doctorsList" /> </a></li>
+                    <li class="tab col s6"><a href="#test2"><fmt:message key="patientsList" /></a></li>
                 </ul>
             </div>
 
             <!-- Doctors -->
+
             <div id="test1" class="col s12">
                 <div class="input-field col s4">
                     <select>
-                        <option value="" disabled selected>Choose sorting type</option>
-                        <option value="1">Alphabeth</option>
-                        <option value="2">Cathegory</option>
-                        <option value="3">Count of patients</option>
+                        <option value="" disabled selected><fmt:message key="sortingType" /></option>
+                        <option value="1"><fmt:message key="alphabet" /></option>
+                        <option value="2"><fmt:message key="category" /></option>
+                        <option value="3"><fmt:message key="countPatients" /></option>
                     </select>
                 </div>
+
                 <ul class="collection col s12">
+                    <% for (Doctor doctor : (List<Doctor>)request.getAttribute("activeDoctors")) { %>
                     <li class="collection-item ">
-                        <span class="title">Name</span>
-                        <p>Surname
-                        <p>Date
+                        <span class="title"><%= doctor.getUserId().getName()%></span>
+                        <p><%= doctor.getUserId().getSurname()%></p>
+                        <p><%= doctor.getDoctorType()%></p>
                     </li>
-                    <li class="collection-item ">
-                        <span class="title">Name</span>
-                        <p>Surname
-                        <p>Date
-                    </li>
+                    <% } %>
                 </ul>
             </div>
 
@@ -89,17 +79,19 @@
             <div id="test2" class="col s12">
                 <div class="input-field col s4">
                     <select>
-                        <option value="" disabled selected>Choose sorting type</option>
-                        <option value="1">Alphabeth</option>
-                        <option value="2">Birthday date</option>
+                        <option value="" disabled selected><fmt:message key="sortingType" /></option>
+                        <option value="4"><fmt:message key="alphabet" /></option>
+                        <option value="5"><fmt:message key="date" /></option>
                     </select>
                 </div>
                 <ul class="collection col s12">
+                    <% for (Patient patient : (List<Patient>)request.getAttribute("activePatients")) { %>
                     <li class="collection-item ">
-                        <span class="title">Name  <a href="#" class="btn right red darken-4">assign a doctor</a> </span>
-                        <p>Surname
-                        <p>Date
+                        <span class="title"><%= patient.getUser().getName()%></span>
+                        <p><%= patient.getUser().getSurname()%></p>
+                        <p><%= patient.getUser().getBirthday()%></p>
                     </li>
+                    <% } %>
                 </ul>
             </div>
         </div>

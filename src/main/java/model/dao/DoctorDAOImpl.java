@@ -12,8 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DoctorDAOImpl implements model.dao.interfaces.DoctorDAO {
-    private static Logger logger = Logger.getLogger(DoctorDAOImpl.class);
-
+    private static final Logger logger = Logger.getLogger(DoctorDAOImpl.class);
     private static final String INSERT_DOCTOR = "insert into doctor(id, user_id, doctor_type) values(?,?,?)";
     private static final String FIND_ALL_DOCTORS = "select * from doctor where doctor_type <>'Медсестра'";
     private static final String FIND_ALL_NURSES = "select * from doctor where doctor_type ='Медсестра'";

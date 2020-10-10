@@ -13,13 +13,14 @@ public class PostCommandProvider implements CommandProvider {
 
     public PostCommandProvider() {
         command.put(HospitalPaths.HOME_HOSPITAL, new HomeCommand());
-
         command.put(HospitalPaths.LOGIN, new LoginCommand());
         command.put(HospitalPaths.REGISTER, new RegisterCommand());
         command.put(HospitalPaths.ADMIN_HOME, new AdminHomepage());
         command.put(HospitalPaths.DOCTOR_HOME, new DoctorHomepage());
         command.put(HospitalPaths.NURSE_HOME, new NurseHomepage());
         command.put(HospitalPaths.PATIENT_HOME, new PatientHomepage());
+        command.put(HospitalPaths.ADMIN_REGISTER_PATIENT, new PatientRegister());
+        command.put(HospitalPaths.ADMIN_REGISTER_DOCTOR, new DoctorRegister());
     }
 
     @Override

@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Bohdan
-  Date: 30.09.2020
-  Time: 15:41
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -39,33 +32,16 @@
 <jsp:include page="element/header.jsp" />
 
 <main>
-    <!-- Banner image-->
     <div class="container">
         <ul class="collection with-header">
             <li class="collection-header"><h4>Name Doctor</h4></li>
             <li class="collection-item ">
                 <span class="title">Name</span>
-                <a href="#" class="btn right red darken-4">complete assignment</a>
+                <a href="#" class="btn right red darken-4"><fmt:message key="completeAssignment" /></a>
                 <p>Surname
-                    <a href="#" class="btn right red darken-4">create assignment</a> </p>
+                    <a href="#" class="btn right red darken-4"><fmt:message key="createAssignment" /></a> </p>
                 <p>Date
-                    <a href="#" class="btn right red darken-4">define diagnosis</a> </p>
-            </li>
-            <li class="collection-item ">
-                <span class="title">Name</span>
-                <a href="#" class="btn right red darken-4">complete assignment</a>
-                <p>Surname
-                    <a href="#" class="btn right red darken-4">create assignment</a> </p>
-                <p>Date
-                    <a href="#" class="btn right red darken-4">define diagnosis</a> </p>
-            </li>
-            <li class="collection-item ">
-                <span class="title">Name</span>
-                <a href="#" class="btn right red darken-4">complete assignment</a>
-                <p>Surname
-                    <a href="#" class="btn right red darken-4">create assignment</a> </p>
-                <p>Date
-                    <a href="#" class="btn right red darken-4">define diagnosis</a> </p>
+                    <a href="#" class="btn right red darken-4"><fmt:message key="defineDiagnosis" /></a> </p>
             </li>
         </ul>
     </div>

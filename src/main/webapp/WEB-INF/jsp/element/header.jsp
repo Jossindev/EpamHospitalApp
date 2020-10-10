@@ -1,4 +1,3 @@
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -24,15 +23,15 @@
                             </form>
                         </div>
                     </li>
-                    <li><a href="/logout" class="btn"><fmt:message key="logout"/></a></li>
+                    <li><a href="${pageContext.request.contextPath}/logout" class="btn"><fmt:message key="logout"/></a></li>
                 </ul>
             </div>
-            <div class="input-field col s12">
+                <div class="input-field col s12">
             </div>
         </div>
     </nav>
 
     <ul class="sidenav" id="mobile-demo">
-        <li><a href="/logout" class="btn"><fmt:message key="logout"/></a></li>
+        <li><a href="${pageContext.request.contextPath}/logout" class="btn"><fmt:message key="logout"/></a></li>
     </ul>
 </header>

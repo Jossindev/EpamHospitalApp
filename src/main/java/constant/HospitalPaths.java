@@ -10,6 +10,8 @@ public class HospitalPaths {
     public static final String NURSE_HOME = "/nurse";
     public static final String DOCTOR_HOME = "/doctor";
     public static final String ADMIN_HOME = "/admin";
+    public static final String ADMIN_REGISTER_DOCTOR = "/admin/registerDoctor";
+    public static final String ADMIN_REGISTER_PATIENT = "/admin/registerPatient";
 
     private HospitalPaths(){}
 

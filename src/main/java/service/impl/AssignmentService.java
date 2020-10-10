@@ -10,8 +10,7 @@ public class AssignmentService {
     private static final DaoFactory daoFactory = DaoFactoryImpl.getInstance();
     private static final AssignmentDAOImpl assignmentDAO = daoFactory.createAssignmentDao();
 
-    public AssignmentService() {
-    }
+    public AssignmentService() { }
 
     public Assignment findAssignmentById(int id) {
         return assignmentDAO.findById(id);

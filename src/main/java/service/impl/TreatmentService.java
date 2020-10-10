@@ -9,8 +9,7 @@ public class TreatmentService {
     private static final DaoFactory daoFactory = DaoFactoryImpl.getInstance();
     private static final TreatmentDAOImpl treatmentDAO = daoFactory.createTreatmentDao();
 
-    public TreatmentService() {
-    }
+    public TreatmentService() { }
 
     public Treatment findTreatmentById(int id) {
         return treatmentDAO.findById(id);

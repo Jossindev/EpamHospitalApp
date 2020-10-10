@@ -1,4 +1,3 @@
-
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
@@ -23,9 +22,10 @@ public class DispatcherFilter implements Filter {
         GUEST.add(LOGIN);
         GUEST.add(REGISTER);
 
-        PROTECTED_URIS.put(LOGOUT, "PATIENT");
         PROTECTED_URIS.put(DOCTOR_HOME, "DOCTOR");
         PROTECTED_URIS.put(ADMIN_HOME, "ADMIN");
+        PROTECTED_URIS.put(PATIENT_HOME, "PATIENT");
+        PROTECTED_URIS.put(NURSE_HOME, "DOCTOR");
     }
 
 
@@ -48,7 +48,7 @@ public class DispatcherFilter implements Filter {
 
         if (PROTECTED_URIS.containsKey(uri)) {
             if (sessionRole == null) {
-                request.getRequestDispatcher(LOGIN).forward(request, response);
+                request.getRequestDispatcher(HOME_HOSPITAL).forward(request, response);
             }
             if (!currentRole.equals(sessionRole)) {
                 request.getRequestDispatcher(FORBIDDEN_PAGE).forward(request, response);

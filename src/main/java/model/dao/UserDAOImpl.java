@@ -12,13 +12,13 @@ import java.util.List;
 import java.util.Optional;
 
 public class UserDAOImpl implements UserDAO {
+    private static final Logger logger = Logger.getLogger(UserDAOImpl.class);
     private final static String FIND_BY_ID = "select * from user where id =?";
     private final static String FIND_ALL = "select * from user";
     private final static String FIND_BY_EMAIL_AND_PASS = "select * from user where email = ? and password = ?";
     private final static String INSERT_USER = "insert into user(name, surname, birthday, email, password, role_id)  " +
             "values (?, ?, ?, ?, ?, ?)";
 
-    private static final Logger logger = Logger.getLogger(UserDAOImpl.class);
 
     public UserDAOImpl() {
     }
@@ -51,14 +51,12 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public Optional<User> findByEmailAndPass(String email, String password) {
-        User user = null;
+        User user;
 
         try (Connection connection = PoolConnections.getConnection();
              PreparedStatement statement = connection.prepareStatement(FIND_BY_EMAIL_AND_PASS)) {
             statement.setString(1, email);
             statement.setString(2, password);
-            System.out.println("find user");
-            System.out.println(email + " " + password);
             try (ResultSet rs = statement.executeQuery()) {
                 while (rs.next()) {
                     user = new User(rs.getInt("id"),
@@ -97,8 +95,8 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public User findById(int id) {
-        User user = null;
+    public Optional<User> findById(int id) {
+        User user;
         try (Connection connection = PoolConnections.getConnection();
              PreparedStatement statement = connection.prepareStatement(FIND_BY_ID)) {
 
@@ -112,11 +110,12 @@ public class UserDAOImpl implements UserDAO {
                             resultSet.getString("email"),
                             resultSet.getString("password"),
                             resultSet.getInt("role_id"));
+                    return Optional.of(user);
                 }
             }
         } catch (SQLException e) {
             logger.error("Can not find by id ", e);
         }
-        return user;
+        return Optional.empty();
     }
 }

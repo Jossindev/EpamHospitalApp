@@ -12,5 +12,5 @@ public interface UserDAO {
 
     public boolean addUser(User user);
 
-    public User findById(int id);
+    public Optional<User> findById(int id);
 }

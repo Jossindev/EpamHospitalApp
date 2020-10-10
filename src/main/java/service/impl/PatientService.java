@@ -14,7 +14,10 @@ public class PatientService {
     public PatientService() {
     }
 
-    public List<Patient> findAllPatients(int doctorId) {
+    public List<Patient> findAll() {
+        return patientDAO.findAllPatients();
+    }
+    public List<Patient> findAllDoctorPatients(int doctorId) {
         return patientDAO.findAllDoctorPatients(doctorId);
     }
 
@@ -28,5 +31,8 @@ public class PatientService {
 
     public void assignTreatment(int patientId, int treatmentId) {
         patientDAO.assignDoctorToPatient(patientId, treatmentId);
+    }
+    public boolean registerPatient(int id, int patientId) {
+        return patientDAO.insertPatient(id, patientId);
     }
 }

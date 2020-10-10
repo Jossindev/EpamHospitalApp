@@ -3,6 +3,7 @@ package model.entity;
 import model.dao.UserDAOImpl;
 
 import java.util.Objects;
+import java.util.Optional;
 
 public class Doctor {
     private int id;
@@ -11,7 +12,7 @@ public class Doctor {
 
     public Doctor(int id, int userId, String doctorType) {
         this.id = id;
-        this.userId = detectUser(userId);
+        this.userId = detectUser(userId).get();
         this.doctorType = doctorType;
     }
 
@@ -58,11 +59,10 @@ public class Doctor {
     public String toString() {
         return "Doctor{" +
                 "id=" + id +
-                ", userId=" + userId +
                 ", doctorType='" + doctorType + '\'' +
                 '}';
     }
-    public User detectUser(int id) {
+    public Optional<User> detectUser(int id) {
         return new UserDAOImpl().findById(id);
     }
 }

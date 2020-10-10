@@ -10,12 +10,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AssignmentTypeDAOImpl implements AssignmentTypeDAO {
-    private static Logger logger = Logger.getLogger(AssignmentTypeDAOImpl.class);
+    private static final Logger logger = Logger.getLogger(AssignmentTypeDAOImpl.class);
     private static final String FIND_BY_ID = "select * from assignment_type where id =?";
     private static final String FIND_ALL_TYPE = "select * from assignment_type";
 
-    public AssignmentTypeDAOImpl() {
-    }
+    public AssignmentTypeDAOImpl() { }
 
     @Override
     public AssignmentType findById(int id) {

@@ -2,8 +2,6 @@ package command.impl;
 
 import command.HospitalCommand;
 import constant.HospitalPages;
-import model.dao.RoleDAOImpl;
-import model.entity.Role;
 import model.entity.User;
 import service.validation.AuthValidation;
 
@@ -31,7 +29,6 @@ public class RegisterCommand implements HospitalCommand {
         boolean isRegister = validation.register(regUser, confirmPassword);
 
         if (isRegister) {
-            System.out.println("register complete");
             request.getRequestDispatcher(HospitalPages.SIGN_IN).forward(request, response);
             return;
         }
