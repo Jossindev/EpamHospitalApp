@@ -35,4 +35,8 @@ public class PatientService {
     public boolean registerPatient(int id, int patientId) {
         return patientDAO.insertPatient(id, patientId);
     }
+
+    public Patient findPatientById(int id) {
+        return patientDAO.findPatientById(id);
+    }
 }

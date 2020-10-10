@@ -1,5 +1,6 @@
 package model.dao;
 
+
 import model.entity.Doctor;
 import model.entity.Patient;
 import org.apache.log4j.Logger;
@@ -16,9 +17,33 @@ public class PatientDAOImpl implements model.dao.interfaces.PatientDAOImpl {
     private static final String ASSIGN_NURSE = "update patient set nurse_id = ? where id = ?";
     private static final String ASSIGN_TREATMENT = "update patient set treatment_id = ? where id = ?";
     private static final String INSERT_PATIENT = "insert into patient(id, user_id) values(?,?)";
+    private static final String FIND_PATIENT_BY_ID = "select * from patient where user_id = ?";
     private static final Logger logger = Logger.getLogger(PatientDAOImpl.class);
 
     public PatientDAOImpl() {
+    }
+
+    @Override
+    public Patient findPatientById(int id) {
+        Patient patient = null;
+
+        try (Connection connection = PoolConnections.getConnection();
+             PreparedStatement statement = connection.prepareStatement(FIND_PATIENT_BY_ID)) {
+
+            statement.setInt(1, id);
+            try (ResultSet resultSet = statement.executeQuery()) {
+                while (resultSet.next()) {
+                    patient = new Patient(resultSet.getInt("id"),
+                            resultSet.getInt("user_id"),
+                            resultSet.getInt("doctor_id"),
+                            resultSet.getInt("nurse_id"),
+                            resultSet.getInt("treatment_id"));
+                }
+            }
+        } catch (SQLException e) {
+            logger.error("Can not find doctor by id", e);
+        }
+        return patient;
     }
 
     @Override

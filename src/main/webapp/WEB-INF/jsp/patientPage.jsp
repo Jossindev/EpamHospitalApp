@@ -1,3 +1,4 @@
+<%@ page import="model.entity.Patient" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -30,14 +31,15 @@
 <body>
 <jsp:include page="element/header.jsp" />
 
+<%Patient patient = (Patient) request.getAttribute("currentPatient"); %>
 <main>
     <div class="container">
         <ul class="collection with-header">
-            <li class="collection-header"><h4>Name Patient <a href="#" class="btn right red darken-4"><fmt:message key="hospitalCard" /></a></h4> </li>
+            <li class="collection-header"><h4><%= patient.getUser().getName() %><a href="#" class="btn right red darken-4"><fmt:message key="hospitalCard" /></a></h4> </li>
             <li class="collection-item ">
-                <span class="title">Name</span>
-                <p>Surname</p>
-                <p>Date</p>
+                <span class="title"><%= patient.getUser().getName() %></span>
+                <p><%= patient.getUser().getSurname() %></p>
+                <p><%= patient.getUser().getBirthday() %></p>
             </li>
         </ul>
     </div>

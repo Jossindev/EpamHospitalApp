@@ -18,7 +18,7 @@ public class PoolConnections {
         config.setUsername(resourceBundle.getString("user"));
         config.setPassword(resourceBundle.getString("password"));
         config.setMaximumPoolSize(15);
-        config.setDriverClassName("com.mysql.jdbc.Driver");
+        config.setDriverClassName(resourceBundle.getString("driver"));
 
         ds = new HikariDataSource(config);
     }

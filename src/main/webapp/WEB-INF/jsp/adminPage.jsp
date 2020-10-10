@@ -87,7 +87,8 @@
                 <ul class="collection col s12">
                     <% for (Patient patient : (List<Patient>)request.getAttribute("activePatients")) { %>
                     <li class="collection-item ">
-                        <span class="title"><%= patient.getUser().getName()%></span>
+                        <span class="title"><%= patient.getUser().getName()%>
+                            <a href="#" class="btn right red darken-4"><fmt:message key="assignDoctor"/> </a> </span>
                         <p><%= patient.getUser().getSurname()%></p>
                         <p><%= patient.getUser().getBirthday()%></p>
                     </li>

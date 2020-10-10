@@ -16,7 +16,7 @@ public class DoctorDAOImpl implements model.dao.interfaces.DoctorDAO {
     private static final String INSERT_DOCTOR = "insert into doctor(id, user_id, doctor_type) values(?,?,?)";
     private static final String FIND_ALL_DOCTORS = "select * from doctor where doctor_type <>'Медсестра'";
     private static final String FIND_ALL_NURSES = "select * from doctor where doctor_type ='Медсестра'";
-    private static final String FIND_DOCTOR_BY_ID = "select * from doctor where id = ?";
+    private static final String FIND_DOCTOR_BY_ID = "select * from doctor where user_id = ?";
 
     public DoctorDAOImpl() {
     }

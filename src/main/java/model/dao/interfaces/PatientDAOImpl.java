@@ -16,4 +16,6 @@ public interface PatientDAOImpl {
     List<Patient> findAllPatients();
 
     public boolean insertPatient(int id, int patientId);
+
+    public Patient findPatientById(int id);
 }
