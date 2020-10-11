@@ -49,18 +49,18 @@
 
                 <div id="modal1" class="modal">
                     <form method="post" action=${pageContext.request.contextPath}/doctor/completeAssign class="center-block" style="text-align: center; min-width: 80%">
-
-                        <div class="input-field " style="margin-top: 40px">
-                            <input type="text" id="userId1" name="userId1">
-                            <label class="active" for="userId1"><fmt:message key="userId"/></label>
-                        </div>
-
-                        <div class="input-field ">
-                            <input type="text" id="patientId1" name="patientId1">
-                            <label class="active" for="patientId1"><fmt:message key="patients"/></label>
-                        </div>
-                        <div class="input-field center">
-                            <button class="btn right red darken-4" type="submit"><fmt:message key="submit"/></button>
+                        <div class="container">
+                            <div class="input-field " style="margin-top: 40px">
+                                <input type="text" id="userId1" name="userId1">
+                                <label class="active" for="userId1"><fmt:message key="userId"/></label>
+                            </div>
+                            <div class="input-field ">
+                                <input type="text" id="patientId1" name="patientId1">
+                                <label class="active" for="patientId1"><fmt:message key="doctorId"/></label>
+                            </div>
+                            <div class="input-field center">
+                                <button class="btn right red darken-4" type="submit"><fmt:message key="submit"/></button>
+                            </div>
                         </div>
                     </form>
                 </div>
@@ -69,18 +69,23 @@
 
                 <div id="modal2" class="modal">
                     <form method="post" action=${pageContext.request.contextPath}/doctor/createAssign class="center-block" style="text-align: center; min-width: 80%">
+                        <div class="container">
+                            <div class="input-field " style="margin-top: 40px">
+                                <input type="text" id="userId2" name="userId2">
+                             <label class="active" for="userId2"><fmt:message key="userId"/></label>
+                            </div>
 
-                        <div class="input-field " style="margin-top: 40px">
-                            <input type="text" id="userId2" name="userId2">
-                            <label class="active" for="userId2"><fmt:message key="userId"/></label>
-                        </div>
-
-                        <div class="input-field ">
-                            <input type="text" id="patientId2" name="patientId2">
-                            <label class="active" for="patientId2"><fmt:message key="patients"/></label>
-                        </div>
-                        <div class="input-field center">
-                            <button class="btn right red darken-4" type="submit"><fmt:message key="submit"/></button>
+                            <div class="input-field ">
+                                 <input type="text" id="patientId2" name="patientId2">
+                                 <label class="active" for="patientId2"><fmt:message key="doctorId"/></label>
+                            </div>
+                            <div class="input-field ">
+                                <input type="text" id="description" name="description">
+                                <label class="active" for="description"><fmt:message key="description"/></label>
+                            </div>
+                            <div class="input-field center">
+                                <button class="btn right red darken-4" type="submit"><fmt:message key="submit"/></button>
+                            </div>
                         </div>
                     </form>
                 </div>

@@ -34,7 +34,6 @@
                         <label class="active" for="userId"><fmt:message key="userId"/> </label>
                     </div>
 
-
                     <div class="input-field ">
                         <input  id="doctorType" type="text" name="doctorType">
                         <label class="active" for="doctorType"><fmt:message key="doctorType"/> </label>

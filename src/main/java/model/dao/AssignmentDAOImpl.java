@@ -42,7 +42,6 @@ public class AssignmentDAOImpl implements model.dao.interfaces.AssignmentDAO {
 
     @Override
     public void updateAssignmentExecutor(int executorId, int id) {
-
         try (Connection connection = PoolConnections.getConnection();
              PreparedStatement statement = connection.prepareStatement(UPDATE_EXECUTOR)) {
             statement.setInt(1, executorId);
@@ -54,11 +53,12 @@ public class AssignmentDAOImpl implements model.dao.interfaces.AssignmentDAO {
     }
 
     @Override
-    public void updateAssignmentReporter(int reporterId, int id) {
+    public void updateAssignmentReporter(int reporterId, int id, String description) {
         try (Connection connection = PoolConnections.getConnection();
              PreparedStatement statement = connection.prepareStatement(UPDATE_REPORTER)) {
             statement.setInt(1, reporterId);
-            statement.setInt(2, id);
+            statement.setString(2,description);
+            statement.setInt(3, id);
             statement.executeUpdate();
         } catch (SQLException e) {
             logger.error("Can not update assignment reporter", e);

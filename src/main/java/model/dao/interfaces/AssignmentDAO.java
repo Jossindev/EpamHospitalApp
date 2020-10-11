@@ -7,5 +7,5 @@ public interface AssignmentDAO {
 
     void updateAssignmentExecutor(int executorId, int id);
 
-    void updateAssignmentReporter(int reporterId, int id);
+     void updateAssignmentReporter(int reporterId, int id, String description);
 }

@@ -20,7 +20,7 @@ public class AssignmentService {
         assignmentDAO.updateAssignmentExecutor(executorId, id);
     }
 
-    public void updateAssignmentReporter(int reporterId, int id) {
-        assignmentDAO.updateAssignmentReporter(reporterId, id);
+    public void updateAssignmentReporter(int reporterId, int id, String description) {
+        assignmentDAO.updateAssignmentReporter(reporterId, id, description);
     }
 }

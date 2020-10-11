@@ -8,7 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-import static constant.HospitalPaths.DOCTOR_DEFINE_DIAGNOSIS;
+import static constant.HospitalPaths.DOCTOR_HOME;
+
 
 public class DefineDiagnosisCommand implements HospitalCommand {
     @Override
@@ -19,6 +20,8 @@ public class DefineDiagnosisCommand implements HospitalCommand {
         PatientService service = new PatientService();
         service.assignTreatment(treatmentId, userId);
 
-        request.getRequestDispatcher(DOCTOR_DEFINE_DIAGNOSIS).forward(request, response);
+    request.getRequestDispatcher(DOCTOR_HOME).forward(request, response);
+
+
     }
 }
