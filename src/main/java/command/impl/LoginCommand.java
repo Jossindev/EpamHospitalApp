@@ -24,7 +24,7 @@ public class LoginCommand implements HospitalCommand {
         boolean isSuccessful = validation.login(email, password, session);
         if (isSuccessful) {
             response.setStatus(HttpServletResponse.SC_MOVED_PERMANENTLY);
-            response.setHeader("Location", defineRole(session, response));
+            response.setHeader("Location", defineRole(session));
             return;
         }
 
@@ -32,7 +32,7 @@ public class LoginCommand implements HospitalCommand {
         request.getRequestDispatcher(HospitalPages.SIGN_IN).forward(request, response);
     }
 
-    private String defineRole(HttpSession session, HttpServletResponse response) {
+    private String defineRole(HttpSession session) {
         String currentRole = (String) session.getAttribute("role");
 
         switch (currentRole) {
@@ -42,7 +42,7 @@ public class LoginCommand implements HospitalCommand {
                 return HospitalPaths.DOCTOR_HOME;
             case "PATIENT":
                 return HospitalPaths.PATIENT_HOME;
+            default: return "/";
         }
-        return "/";
     }
 }

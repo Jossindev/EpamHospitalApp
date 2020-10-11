@@ -8,19 +8,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-import static constant.HospitalPages.*;
+import static constant.HospitalPaths.DOCTOR_DEFINE_DIAGNOSIS;
 
-
-public class PatientRegister implements HospitalCommand {
+public class DefineDiagnosisCommand implements HospitalCommand {
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int userId = Integer.parseInt(request.getParameter("userId"));
-        int patientId = Integer.parseInt(request.getParameter("patientId"));
-
+        int userId = Integer.parseInt(request.getParameter("user"));
+        int treatmentId = Integer.parseInt(request.getParameter("treatment"));
 
         PatientService service = new PatientService();
-        service.registerPatient(userId, patientId);
+        service.assignTreatment(treatmentId, userId);
 
-        request.getRequestDispatcher(REGISTER_PATIENT).forward(request, response);
+        request.getRequestDispatcher(DOCTOR_DEFINE_DIAGNOSIS).forward(request, response);
     }
 }

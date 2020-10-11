@@ -42,7 +42,9 @@
            </div>
     </div>
 </div>
+
 <jsp:include page="element/footer.jsp" />
+
 <script>
     $(document).ready(function(){
     });

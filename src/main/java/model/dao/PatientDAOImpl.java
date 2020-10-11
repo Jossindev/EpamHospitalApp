@@ -1,7 +1,7 @@
 package model.dao;
 
 
-import model.entity.Doctor;
+
 import model.entity.Patient;
 import org.apache.log4j.Logger;
 import model.database.PoolConnections;
@@ -102,7 +102,7 @@ public class PatientDAOImpl implements model.dao.interfaces.PatientDAOImpl {
              PreparedStatement statement = connection.prepareStatement(ASSIGN_DOCTOR)) {
             statement.setInt(1, doctorId);
             statement.setInt(2, patientId);
-            statement.executeQuery();
+            statement.executeUpdate();
 
         } catch (SQLException e) {
             logger.error("Can not assign doctor to patient", e);
@@ -115,7 +115,7 @@ public class PatientDAOImpl implements model.dao.interfaces.PatientDAOImpl {
              PreparedStatement statement = connection.prepareStatement(ASSIGN_NURSE)) {
             statement.setInt(1, nurseId);
             statement.setInt(2, patientId);
-            statement.executeQuery();
+            statement.executeUpdate();
 
         } catch (SQLException e) {
             logger.error("Can not assign nurse to patient", e);
@@ -128,7 +128,7 @@ public class PatientDAOImpl implements model.dao.interfaces.PatientDAOImpl {
              PreparedStatement statement = connection.prepareStatement(ASSIGN_TREATMENT)) {
             statement.setInt(1, treatmentId);
             statement.setInt(2, patientId);
-            statement.executeQuery();
+            statement.executeUpdate();
 
         } catch (SQLException e) {
             logger.error("Can not assign treatment to patient", e);

@@ -12,6 +12,9 @@ public class HospitalPaths {
     public static final String ADMIN_HOME = "/admin";
     public static final String ADMIN_REGISTER_DOCTOR = "/admin/registerDoctor";
     public static final String ADMIN_REGISTER_PATIENT = "/admin/registerPatient";
+    public static final String DOCTOR_COMPLETE_ASSIGNMENT = "/doctor/completeAssign";
+    public static final String DOCTOR_CREATE_ASSIGNMENT = "/doctor/createAssign";
+    public static final String DOCTOR_DEFINE_DIAGNOSIS = "/doctor/defineDiagnosis";
 
     private HospitalPaths(){}
 

@@ -13,7 +13,7 @@ public class AssignmentDAOImpl implements model.dao.interfaces.AssignmentDAO {
     private static final Logger logger = Logger.getLogger(AssignmentDAOImpl.class);
     private static final String FIND_BY_ID = "select * from assignment where id =?";
     private static final String UPDATE_EXECUTOR = "update assignment set executor_id = ? where id = ?";
-    private static final String UPDATE_REPORTER = "update assignment set reporter_id = ? where id = ?";
+    private static final String UPDATE_REPORTER = "update assignment set reporter_id = ?, description = ? where id = ?";
 
     public AssignmentDAOImpl() {
     }
@@ -47,7 +47,7 @@ public class AssignmentDAOImpl implements model.dao.interfaces.AssignmentDAO {
              PreparedStatement statement = connection.prepareStatement(UPDATE_EXECUTOR)) {
             statement.setInt(1, executorId);
             statement.setInt(2, id);
-            statement.executeQuery();
+            statement.executeUpdate();
         } catch (SQLException e) {
             logger.error("Can not update assignment executor", e);
         }
@@ -59,7 +59,7 @@ public class AssignmentDAOImpl implements model.dao.interfaces.AssignmentDAO {
              PreparedStatement statement = connection.prepareStatement(UPDATE_REPORTER)) {
             statement.setInt(1, reporterId);
             statement.setInt(2, id);
-            statement.executeQuery();
+            statement.executeUpdate();
         } catch (SQLException e) {
             logger.error("Can not update assignment reporter", e);
         }

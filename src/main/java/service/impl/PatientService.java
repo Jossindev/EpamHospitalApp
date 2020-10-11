@@ -21,16 +21,16 @@ public class PatientService {
         return patientDAO.findAllDoctorPatients(doctorId);
     }
 
-    public void assignDoctor(int patientId, int doctorId) {
-        patientDAO.assignDoctorToPatient(patientId, doctorId);
+    public void assignDoctor(int doctorId, int patientId) {
+        patientDAO.assignDoctorToPatient(doctorId, patientId);
     }
 
-    public void assignNurse(int patientId, int nurseId) {
-        patientDAO.assignDoctorToPatient(patientId, nurseId);
+    public void assignNurse(int nurseId, int patientId) {
+        patientDAO.assignNurseToPatient(nurseId, patientId);
     }
 
-    public void assignTreatment(int patientId, int treatmentId) {
-        patientDAO.assignDoctorToPatient(patientId, treatmentId);
+    public void assignTreatment(int treatmentId, int patientId) {
+        patientDAO.assignTreatmentToPatient(treatmentId, patientId);
     }
     public boolean registerPatient(int id, int patientId) {
         return patientDAO.insertPatient(id, patientId);

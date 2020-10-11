@@ -44,11 +44,67 @@
             <% for (Patient patient : (List<Patient>)request.getAttribute("patients")) { %>
             <li class="collection-item ">
                 <span class="title"><%= patient.getUser().getName()%></span>
-                    <a href="#" class="btn right red darken-4"><fmt:message key="completeAssignment" /></a>
+
+                <a class="btn right red darken-4 modal-trigger" href="#modal1"><fmt:message key="completeAssignment" /></a>
+
+                <div id="modal1" class="modal">
+                    <form method="post" action=${pageContext.request.contextPath}/doctor/completeAssign class="center-block" style="text-align: center; min-width: 80%">
+
+                        <div class="input-field " style="margin-top: 40px">
+                            <input type="text" id="userId1" name="userId1">
+                            <label class="active" for="userId1"><fmt:message key="userId"/></label>
+                        </div>
+
+                        <div class="input-field ">
+                            <input type="text" id="patientId1" name="patientId1">
+                            <label class="active" for="patientId1"><fmt:message key="patients"/></label>
+                        </div>
+                        <div class="input-field center">
+                            <button class="btn right red darken-4" type="submit"><fmt:message key="submit"/></button>
+                        </div>
+                    </form>
+                </div>
                 <p><%= patient.getUser().getSurname()%>
-                    <a href="#" class="btn right red darken-4"><fmt:message key="createAssignment" /></a> </p>
+                <a class="btn right red darken-4 modal-trigger" href="#modal2"><fmt:message key="createAssignment" /></a>
+
+                <div id="modal2" class="modal">
+                    <form method="post" action=${pageContext.request.contextPath}/doctor/createAssign class="center-block" style="text-align: center; min-width: 80%">
+
+                        <div class="input-field " style="margin-top: 40px">
+                            <input type="text" id="userId2" name="userId2">
+                            <label class="active" for="userId2"><fmt:message key="userId"/></label>
+                        </div>
+
+                        <div class="input-field ">
+                            <input type="text" id="patientId2" name="patientId2">
+                            <label class="active" for="patientId2"><fmt:message key="patients"/></label>
+                        </div>
+                        <div class="input-field center">
+                            <button class="btn right red darken-4" type="submit"><fmt:message key="submit"/></button>
+                        </div>
+                    </form>
+                </div>
                 <p><%= patient.getUser().getBirthday()%>
-                    <a href="#" class="btn right red darken-4"><fmt:message key="defineDiagnosis" /></a> </p>
+                <a class="btn right red darken-4 modal-trigger" href="#modal3"><fmt:message key="defineDiagnosis" /></a>
+
+                <div id="modal3" class="modal">
+                    <form method="post" action=${pageContext.request.contextPath}/doctor/defineDiagnosis class="center-block" style="text-align: center; min-width: 80%">
+                        <div class="container">
+                        <div class="input-field " style="margin-top: 40px">
+                            <input type="text" id="user" name="user">
+                            <label class="active" for="user"><fmt:message key="userId"/></label>
+                        </div>
+
+                        <div class="input-field ">
+                            <input type="text" id="treatment" name="treatment">
+                            <label class="active" for="treatment"><fmt:message key="treatmentId"/></label>
+                        </div>
+                        <div class="input-field center">
+                            <button class="btn right red darken-4" type="submit"><fmt:message key="submit"/></button>
+                        </div>
+                        </div>
+                    </form>
+                </div>
             </li>
             <% } %>
         </ul>
@@ -63,6 +119,7 @@
     $(document).ready(function(){
         $('select').formSelect();
         $('.sidenav').sidenav();
+        $('.modal').modal();
     });
 </script>
 </body>
