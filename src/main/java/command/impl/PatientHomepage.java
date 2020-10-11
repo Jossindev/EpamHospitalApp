@@ -16,16 +16,13 @@ public class PatientHomepage implements HospitalCommand {
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
-
         String stringId = String.valueOf(session.getAttribute("user_id"));
-
         int id = Integer.parseInt(stringId);
 
         PatientService patientService = new PatientService();
         Patient patient = patientService.findPatientById(id);
 
         request.setAttribute("currentPatient", patient);
-
         request.getRequestDispatcher(PATIENT_HOME).forward(request, response);
     }
 }

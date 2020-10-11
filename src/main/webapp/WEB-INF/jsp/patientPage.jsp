@@ -35,7 +35,16 @@
 <main>
     <div class="container">
         <ul class="collection with-header">
-            <li class="collection-header"><h4><%= patient.getUser().getName() %><a href="#" class="btn right red darken-4"><fmt:message key="hospitalCard" /></a></h4> </li>
+            <li class="collection-header"><h4><%= patient.getUser().getName() %>
+                <a class="btn right red darken-4 modal-trigger" href="#modal2"><fmt:message key="hospitalCard" /></a>
+
+                <div id="modal2" class="modal">
+                        <div class="container">
+                            <p><fmt:message key="yourDiagnosis"/> <%=patient.getTreatment().getDiagnosis()%></p>
+                        </div>
+                </div>
+             </h4>
+            </li>
             <li class="collection-item ">
                 <span class="title"><%= patient.getUser().getName() %></span>
                 <p><%= patient.getUser().getSurname() %></p>
@@ -53,6 +62,7 @@
     $(document).ready(function(){
         $('select').formSelect();
         $('.sidenav').sidenav();
+        $('.modal').modal();
     });
 </script>
 </body>
