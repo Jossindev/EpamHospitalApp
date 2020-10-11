@@ -22,6 +22,7 @@ public class PostCommandProvider implements CommandProvider {
         command.put(PATIENT_HOME, new PatientHomepage());
         command.put(ADMIN_REGISTER_PATIENT, new PatientRegister());
         command.put(ADMIN_REGISTER_DOCTOR, new DoctorRegister());
+        command.put(ADMIN_ASSIGN_DOCTOR, new AssignDoctorCommand());
         command.put(DOCTOR_COMPLETE_ASSIGNMENT, new CompleteAssignmentCommand());
         command.put(DOCTOR_CREATE_ASSIGNMENT, new CreateAssignmentCommand());
         command.put(DOCTOR_DEFINE_DIAGNOSIS, new DefineDiagnosisCommand());
