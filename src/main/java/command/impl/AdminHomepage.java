@@ -9,6 +9,7 @@ import service.impl.PatientService;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 import java.util.List;
@@ -18,15 +19,17 @@ import static constant.HospitalPages.ADMIN_HOME;
 public class AdminHomepage implements HospitalCommand {
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        String bool = String.valueOf(session.getAttribute("isSorted"));
+
         PatientService patientService = new PatientService();
         List<Patient> patients = patientService.findAll();
 
-         int id = Integer.parseInt(String.valueOf(request.getAttribute("isSorted")));
 
         DoctorService service = new DoctorService();
         List<Doctor> doctors = service.findAllDoctors();
 
-        if(id==0) {
+        if (bool.equals("false")) {
             request.setAttribute("activeDoctors", doctors);
             request.setAttribute("activePatients", patients);
         }

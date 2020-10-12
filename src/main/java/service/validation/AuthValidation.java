@@ -27,7 +27,7 @@ public class AuthValidation {
 
         session.setAttribute("role", user.get().getRoleId().getName());
         session.setAttribute("user_id", user.get().getId());
-        session.setAttribute("isSorted", 0);
+        session.setAttribute("isSorted", "false");
         return true;
     }
 

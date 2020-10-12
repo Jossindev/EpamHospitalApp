@@ -9,6 +9,7 @@ import service.impl.PatientService;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.Comparator;
 import java.util.List;
@@ -26,6 +27,7 @@ public class SortingCommand implements HospitalCommand {
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int type = Integer.parseInt(request.getParameter("type"));
+        HttpSession session = request.getSession();
 
         PatientService patientService = new PatientService();
         List<Patient> patients = patientService.findAll();
@@ -37,22 +39,26 @@ public class SortingCommand implements HospitalCommand {
             case 1:
                 doctors.sort(SORT_DOCTOR_BY_ALPHABET);
                 request.setAttribute("activeDoctors", doctors);
-                request.setAttribute("isSorting",1);
+                request.setAttribute("activePatients", patients);
+                session.setAttribute("isSorted","true");
                 break;
             case 2:
                 doctors.sort(SORT_DOCTOR_BY_TYPE);
                 request.setAttribute("activeDoctors", doctors);
-                request.setAttribute("isSorting",1);
+                request.setAttribute("activePatients", patients);
+                session.setAttribute("isSorted","true");
                 break;
             case 3:
                 patients.sort(SORT_PATIENTS_BY_ALPHABET);
+                request.setAttribute("activeDoctors", doctors);
                 request.setAttribute("activePatients", patients);
-                request.setAttribute("isSorting",1);
+                session.setAttribute("isSorted","true");
                 break;
             case 4:
                 patients.sort(SORT_PATIENTS_BY_DATE);
+                request.setAttribute("activeDoctors", doctors);
                 request.setAttribute("activePatients", patients);
-                request.setAttribute("isSorting",1);
+                session.setAttribute("isSorted","true");
                 break;
             default:
                 break;
