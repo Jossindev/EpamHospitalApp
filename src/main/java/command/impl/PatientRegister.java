@@ -17,7 +17,6 @@ public class PatientRegister implements HospitalCommand {
         int userId = Integer.parseInt(request.getParameter("userId"));
         int patientId = Integer.parseInt(request.getParameter("patientId"));
 
-
         PatientService service = new PatientService();
         service.registerPatient(userId, patientId);
 

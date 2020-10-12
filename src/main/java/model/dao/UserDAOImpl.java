@@ -13,12 +13,12 @@ import java.util.Optional;
 
 public class UserDAOImpl implements UserDAO {
     private static final Logger logger = Logger.getLogger(UserDAOImpl.class);
+
     private final static String FIND_BY_ID = "select * from user where id =?";
     private final static String FIND_ALL = "select * from user";
     private final static String FIND_BY_EMAIL_AND_PASS = "select * from user where email = ? and password = ?";
     private final static String INSERT_USER = "insert into user(name, surname, birthday, email, password, role_id)  " +
             "values (?, ?, ?, ?, ?, ?)";
-
 
     public UserDAOImpl() {
     }
@@ -50,6 +50,25 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
+    public boolean addUser(User user) {
+        try (Connection connection = PoolConnections.getConnection();
+             PreparedStatement statement = connection.prepareStatement(INSERT_USER, Statement.RETURN_GENERATED_KEYS)) {
+
+            statement.setString(1, user.getName());
+            statement.setString(2, user.getSurname());
+            statement.setDate(3, user.getBirthday());
+            statement.setString(4, user.getEmail());
+            statement.setString(5, user.getPassword());
+            statement.setInt(6, user.getRoleId().getId());
+            statement.execute();
+            return true;
+        } catch (SQLException e) {
+            logger.error("Can not insert into user table ", e);
+        }
+        return false;
+    }
+
+    @Override
     public Optional<User> findByEmailAndPass(String email, String password) {
         User user;
 
@@ -73,25 +92,6 @@ public class UserDAOImpl implements UserDAO {
             logger.error("Can not find by name and email ", e);
         }
         return Optional.empty();
-    }
-
-    @Override
-    public boolean addUser(User user) {
-        try (Connection connection = PoolConnections.getConnection()) {
-            PreparedStatement statement = connection.prepareStatement(INSERT_USER, Statement.RETURN_GENERATED_KEYS);
-            statement.setString(1, user.getName());
-            statement.setString(2, user.getSurname());
-            statement.setDate(3, user.getBirthday());
-            statement.setString(4, user.getEmail());
-            statement.setString(5, user.getPassword());
-            statement.setInt(6, user.getRoleId().getId());
-            statement.execute();
-            return true;
-        } catch (SQLException e) {
-            logger.error("Can not insert into user table ", e);
-
-        }
-        return false;
     }
 
     @Override

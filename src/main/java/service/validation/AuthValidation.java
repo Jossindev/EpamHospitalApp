@@ -9,10 +9,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class AuthValidation {
-    UserService userService = new UserService();
-
     private static final String EMAIL_REGEX = "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$";
     private static final String PASSWORD_REGEX = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{5,15}$";
+
+    UserService userService = new UserService();
 
     public boolean login(String username, String rawPassword, HttpSession session) {
         Optional<User> user = userService.signIn(username, rawPassword);

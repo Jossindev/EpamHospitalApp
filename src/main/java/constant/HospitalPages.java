@@ -13,6 +13,5 @@ public class HospitalPages {
     public static final String REGISTER_DOCTOR = "/WEB-INF/jsp/regDoctor.jsp";
     public static final String REGISTER_PATIENT = "/WEB-INF/jsp/regPatient.jsp";
 
-
     private HospitalPages(){}
 }

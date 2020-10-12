@@ -17,7 +17,6 @@ public class DispatcherFilter implements Filter {
     private static final Map<String, String> PROTECTED_URIS = new HashMap<>();
     private static final List<String> GUEST = new ArrayList<>();
 
-
     static {
         GUEST.add(LOGIN);
         GUEST.add(REGISTER);
@@ -27,7 +26,6 @@ public class DispatcherFilter implements Filter {
         PROTECTED_URIS.put(PATIENT_HOME, "PATIENT");
         PROTECTED_URIS.put(NURSE_HOME, "DOCTOR");
     }
-
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {

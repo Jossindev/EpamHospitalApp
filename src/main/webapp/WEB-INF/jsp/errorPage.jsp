@@ -19,7 +19,5 @@
 </h2>
 <br>
 <a href="${pageContext.request.contextPath}/">Home</a>
-
-
 </body>
 </html>

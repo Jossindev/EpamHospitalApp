@@ -30,7 +30,6 @@
             </div>
         </div>
     </nav>
-
     <ul class="sidenav" id="mobile-demo">
         <li><a href="${pageContext.request.contextPath}/logout" class="btn"><fmt:message key="logout"/></a></li>
     </ul>

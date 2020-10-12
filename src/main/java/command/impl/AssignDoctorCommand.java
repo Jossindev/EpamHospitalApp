@@ -8,9 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-
 import static constant.HospitalPaths.ADMIN_HOME;
-
 
 public class AssignDoctorCommand implements HospitalCommand {
     @Override
@@ -18,7 +16,6 @@ public class AssignDoctorCommand implements HospitalCommand {
         int id = Integer.parseInt(request.getParameter("userId"));
         int docId = Integer.parseInt(request.getParameter("doctorId"));
         int nurseId = Integer.parseInt(request.getParameter("nurseId"));
-
 
         PatientService service = new PatientService();
         service.assignDoctor(docId, id);

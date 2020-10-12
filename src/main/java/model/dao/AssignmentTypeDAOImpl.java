@@ -11,6 +11,7 @@ import java.util.List;
 
 public class AssignmentTypeDAOImpl implements AssignmentTypeDAO {
     private static final Logger logger = Logger.getLogger(AssignmentTypeDAOImpl.class);
+
     private static final String FIND_BY_ID = "select * from assignment_type where id =?";
     private static final String FIND_ALL_TYPE = "select * from assignment_type";
 

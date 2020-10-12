@@ -18,12 +18,12 @@ public class UserService {
         return userDao.addUser(user);
     }
 
-    public Optional<User> getUserById(int userId) {
-        return userDao.findById(userId);
-    }
-
     public Optional<User> signIn(String login, String password) {
         return userDao.findByEmailAndPass(login, password);
+    }
+
+    public Optional<User> getUserById(int userId) {
+        return userDao.findById(userId);
     }
 
     public List<User> getAllUsers() {

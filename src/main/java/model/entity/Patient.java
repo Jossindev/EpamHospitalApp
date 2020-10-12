@@ -93,7 +93,6 @@ public class Patient {
         return "Patient{" +
                 "id=" + id +
                 ", doctor=" + doctor +
-                ", nurse=" + nurse +
                 ", treatment=" + treatment +
                 '}';
     }

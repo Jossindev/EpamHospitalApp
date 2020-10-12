@@ -11,6 +11,7 @@ import java.sql.SQLException;
 
 public class TreatmentDAOImpl implements model.dao.interfaces.TreatmentDAOImpl {
     private static final Logger logger = Logger.getLogger(TreatmentDAOImpl.class);
+
     private static final String FIND_BY_ID = "select * from treatment where id = ?";
 
     public TreatmentDAOImpl() { }
@@ -35,5 +36,4 @@ public class TreatmentDAOImpl implements model.dao.interfaces.TreatmentDAOImpl {
         }
         return treatment;
     }
-
 }

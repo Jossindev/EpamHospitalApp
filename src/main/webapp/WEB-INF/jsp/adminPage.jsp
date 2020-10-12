@@ -58,10 +58,9 @@
             </div>
 
             <!-- Doctors -->
-
-            <div id="test1" class="col s12">
-                <div class="input-field col s4">
-                    <form action="${pageContext.request.contextPath}/admin/sorting" method="post">
+        <div id="test1" class="col s12">
+            <div class="input-field col s4">
+                <form action="${pageContext.request.contextPath}/admin/sorting" method="post">
                     <select name="type">
                         <option value="0" disabled selected><fmt:message key="sortingType"/></option>
                         <option value="1"><fmt:message key="alphabet"/></option>
@@ -70,26 +69,24 @@
                     <button type="submit" class="btn middle red darken-4" style="width: 100%">
                         <strong>sort</strong>
                     </button>
-                    </form>
-                </div>
-
-                <ul class="collection col s12">
-                    <% for (Doctor doctor : (List<Doctor>) request.getAttribute("activeDoctors")) { %>
-                    <li class="collection-item ">
-                        <span class="title"><%= doctor.getUserId().getName()%></span>
-                        <p><%= doctor.getUserId().getSurname()%>
-                        </p>
-                        <p><%= doctor.getDoctorType()%>
-                        </p>
-                    </li>
-                    <% } %>
-                </ul>
+                </form>
             </div>
 
+            <ul class="collection col s12">
+                <% for (Doctor doctor : (List<Doctor>) request.getAttribute("activeDoctors")) { %>
+                <li class="collection-item ">
+                    <span class="title"><%= doctor.getUserId().getName()%></span>
+                        <p><%= doctor.getUserId().getSurname()%></p>
+                        <p><%= doctor.getDoctorType()%></p>
+                </li>
+                <% } %>
+            </ul>
+        </div>
+
             <!-- Patients -->
-            <div id="test2" class="col s12">
-                <div class="input-field col s4">
-                    <form action="${pageContext.request.contextPath}/admin/sorting" method="post">
+        <div id="test2" class="col s12">
+            <div class="input-field col s4">
+                <form action="${pageContext.request.contextPath}/admin/sorting" method="post">
                     <select name="type">
                         <option value="0" disabled selected><fmt:message key="sortingType"/></option>
                         <option value="3"><fmt:message key="alphabet"/></option>
@@ -98,13 +95,12 @@
                         <button type="submit" class="btn middle red darken-4" style="width: 100%">
                             <strong>sort</strong>
                         </button>
-                    </form>
-                </div>
+                </form>
+            </div>
                 <ul class="collection col s12">
                     <% for (Patient patient : (List<Patient>) request.getAttribute("activePatients")) { %>
-
-                    <li class="collection-item ">
-                        <span class="title"><%= patient.getUser().getName()%>
+                <li class="collection-item ">
+                    <span class="title"><%= patient.getUser().getName()%>
                         <a class="btn right red darken-4 modal-trigger" href="#modal1"><fmt:message key="assignDoctor"/></a>
                         <div id="modal1" class="modal">
                             <form method="post" action=${pageContext.request.contextPath}/admin/assignDoctor

@@ -24,6 +24,10 @@ public class SortingCommand implements HospitalCommand {
     private static final Comparator<Patient> SORT_PATIENTS_BY_ALPHABET = (o1, o2) -> o1.getUser().getName().compareTo(o2.getUser().getName());
     private static final Comparator<Patient> SORT_PATIENTS_BY_DATE = (o1, o2) -> o1.getUser().getBirthday().compareTo(o2.getUser().getBirthday());
 
+    private static final String activeDoctors = "activeDoctors";
+    private static final String activePatients = "activePatients";
+    private static final String isSorted = "isSorted";
+
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int type = Integer.parseInt(request.getParameter("type"));
@@ -38,27 +42,27 @@ public class SortingCommand implements HospitalCommand {
         switch (type) {
             case 1:
                 doctors.sort(SORT_DOCTOR_BY_ALPHABET);
-                request.setAttribute("activeDoctors", doctors);
-                request.setAttribute("activePatients", patients);
-                session.setAttribute("isSorted","true");
+                request.setAttribute(activeDoctors, doctors);
+                request.setAttribute(activePatients, patients);
+                session.setAttribute(isSorted,"true");
                 break;
             case 2:
                 doctors.sort(SORT_DOCTOR_BY_TYPE);
-                request.setAttribute("activeDoctors", doctors);
-                request.setAttribute("activePatients", patients);
-                session.setAttribute("isSorted","true");
+                request.setAttribute(activeDoctors, doctors);
+                request.setAttribute(activePatients, patients);
+                session.setAttribute(isSorted,"true");
                 break;
             case 3:
                 patients.sort(SORT_PATIENTS_BY_ALPHABET);
-                request.setAttribute("activeDoctors", doctors);
-                request.setAttribute("activePatients", patients);
-                session.setAttribute("isSorted","true");
+                request.setAttribute(activeDoctors, doctors);
+                request.setAttribute(activePatients, patients);
+                session.setAttribute(isSorted,"true");
                 break;
             case 4:
                 patients.sort(SORT_PATIENTS_BY_DATE);
-                request.setAttribute("activeDoctors", doctors);
-                request.setAttribute("activePatients", patients);
-                session.setAttribute("isSorted","true");
+                request.setAttribute(activeDoctors, doctors);
+                request.setAttribute(activePatients, patients);
+                session.setAttribute(isSorted,"true");
                 break;
             default:
                 break;

@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class PoolConnections {
-    private static HikariDataSource ds;
+    private static final HikariDataSource ds;
     private static final ResourceBundle resourceBundle = ResourceBundle.getBundle("database");
 
     static {

@@ -19,5 +19,4 @@ public class HospitalPaths {
     public static final String DOCTOR_DEFINE_DIAGNOSIS = "/doctor/defineDiagnosis";
 
     private HospitalPaths(){}
-
 }

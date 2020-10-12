@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.Date;
 
-
 public class RegisterCommand implements HospitalCommand {
     private final AuthValidation validation = new AuthValidation();
 

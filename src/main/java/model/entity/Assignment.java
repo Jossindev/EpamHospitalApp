@@ -25,7 +25,6 @@ public class Assignment {
         this.type = detectAssignmentType(type);
     }
 
-
     public int getId() {
         return id;
     }
@@ -87,8 +86,6 @@ public class Assignment {
     public String toString() {
         return "Assignment{" +
                 "id=" + id +
-                ", executor=" + executor +
-                ", reporter=" + reporter +
                 ", description='" + description + '\'' +
                 ", type=" + type +
                 '}';

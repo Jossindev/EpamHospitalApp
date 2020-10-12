@@ -13,7 +13,6 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 import java.util.List;
-
 import static constant.HospitalPages.ADMIN_HOME;
 
 public class AdminHomepage implements HospitalCommand {
@@ -24,7 +23,6 @@ public class AdminHomepage implements HospitalCommand {
 
         PatientService patientService = new PatientService();
         List<Patient> patients = patientService.findAll();
-
 
         DoctorService service = new DoctorService();
         List<Doctor> doctors = service.findAllDoctors();
