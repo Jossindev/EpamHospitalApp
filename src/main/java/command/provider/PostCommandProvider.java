@@ -26,6 +26,7 @@ public class PostCommandProvider implements CommandProvider {
         command.put(DOCTOR_COMPLETE_ASSIGNMENT, new CompleteAssignmentCommand());
         command.put(DOCTOR_CREATE_ASSIGNMENT, new CreateAssignmentCommand());
         command.put(DOCTOR_DEFINE_DIAGNOSIS, new DefineDiagnosisCommand());
+        command.put(ADMIN_SORTING, new SortingCommand());
     }
 
     @Override

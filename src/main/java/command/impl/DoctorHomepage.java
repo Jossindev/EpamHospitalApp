@@ -20,9 +20,7 @@ public class DoctorHomepage implements HospitalCommand {
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
-
         String stringId = String.valueOf(session.getAttribute("user_id"));
-
         int id = Integer.parseInt(stringId);
 
         DoctorService doctorService = new DoctorService();

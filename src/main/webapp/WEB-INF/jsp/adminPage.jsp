@@ -61,12 +61,16 @@
 
             <div id="test1" class="col s12">
                 <div class="input-field col s4">
-                    <select>
-                        <option value="" disabled selected><fmt:message key="sortingType"/></option>
+                    <form action="${pageContext.request.contextPath}/admin/sorting" method="post">
+                    <select name="type">
+                        <option value="0" disabled selected><fmt:message key="sortingType"/></option>
                         <option value="1"><fmt:message key="alphabet"/></option>
                         <option value="2"><fmt:message key="category"/></option>
-                        <option value="3"><fmt:message key="countPatients"/></option>
                     </select>
+                    <button type="submit" class="btn middle red darken-4" style="width: 100%">
+                        <strong>sort</strong>
+                    </button>
+                    </form>
                 </div>
 
                 <ul class="collection col s12">
@@ -85,11 +89,16 @@
             <!-- Patients -->
             <div id="test2" class="col s12">
                 <div class="input-field col s4">
-                    <select>
-                        <option value="" disabled selected><fmt:message key="sortingType"/></option>
-                        <option value="4"><fmt:message key="alphabet"/></option>
-                        <option value="5"><fmt:message key="date"/></option>
+                    <form action="${pageContext.request.contextPath}/admin/sorting" method="post">
+                    <select name="type">
+                        <option value="0" disabled selected><fmt:message key="sortingType"/></option>
+                        <option value="3"><fmt:message key="alphabet"/></option>
+                        <option value="4"><fmt:message key="date"/></option>
                     </select>
+                        <button type="submit" class="btn middle red darken-4" style="width: 100%">
+                            <strong>sort</strong>
+                        </button>
+                    </form>
                 </div>
                 <ul class="collection col s12">
                     <% for (Patient patient : (List<Patient>) request.getAttribute("activePatients")) { %>

@@ -5,7 +5,7 @@ import model.dao.UserDAOImpl;
 import java.util.Objects;
 import java.util.Optional;
 
-public class Doctor {
+public class Doctor  {
     private int id;
     private User userId;
     private String doctorType;

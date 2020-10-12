@@ -18,16 +18,18 @@ import static constant.HospitalPages.ADMIN_HOME;
 public class AdminHomepage implements HospitalCommand {
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-
         PatientService patientService = new PatientService();
         List<Patient> patients = patientService.findAll();
-        request.setAttribute("activePatients", patients);
+
+         int id = Integer.parseInt(String.valueOf(request.getAttribute("isSorted")));
 
         DoctorService service = new DoctorService();
         List<Doctor> doctors = service.findAllDoctors();
-        request.setAttribute("activeDoctors", doctors);
 
+        if(id==0) {
+            request.setAttribute("activeDoctors", doctors);
+            request.setAttribute("activePatients", patients);
+        }
         request.getRequestDispatcher(ADMIN_HOME).forward(request, response);
     }
 }
