@@ -38,6 +38,8 @@ public class DispatcherFilter implements Filter {
         String sessionRole = (String) session.getAttribute("role");
 
         httpServletResponse.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+        response.setCharacterEncoding("UTF-8");
+        request.setCharacterEncoding("UTF-8");
 
         if (GUEST.contains(uri) && sessionRole != null) {
             request.getRequestDispatcher(FORBIDDEN_PAGE).forward(request, response);

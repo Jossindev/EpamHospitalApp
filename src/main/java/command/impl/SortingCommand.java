@@ -15,7 +15,7 @@ import java.util.Comparator;
 import java.util.List;
 
 
-import static constant.HospitalPaths.ADMIN_HOME;
+import static constant.HospitalPages.ADMIN_HOME;
 
 public class SortingCommand implements HospitalCommand {
     private static final Comparator<Doctor> SORT_DOCTOR_BY_ALPHABET = (o1, o2) -> o1.getUserId().getName().compareTo(o2.getUserId().getName());
