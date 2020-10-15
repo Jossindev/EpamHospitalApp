@@ -58,11 +58,13 @@ FOREIGN KEY(assignment_id) REFERENCES assignment(id)
 CREATE TABLE IF NOT EXISTS patient 
 (
 id    INT PRIMARY KEY AUTO_INCREMENT,
+user_id INT,
 doctor_id INT,
 nurse_id INT,
 treatment_id INT,
 FOREIGN KEY(id) REFERENCES user(id),
-FOREIGN KEY(doctor_id) REFERENCES doctor(id),
+FOREIGN KEY(user_id) REFERENCES user(id),
+FOREIGN KEY(doctor_id) REFERENCES user(id),
 FOREIGN KEY(nurse_id) REFERENCES doctor(id),
 FOREIGN KEY(treatment_id) REFERENCES treatment(id)
 );
@@ -82,25 +84,25 @@ FOREIGN KEY(treatment_id) REFERENCES treatment(id)
  INSERT INTO user(id, name, surname, birthday, email, password, role_id) VALUE(8, 'doctor2', 'doctor2','2020-11-03', 'doctor2@gmail.com','1111', 2);
  INSERT INTO user(id, name, surname, birthday, email, password, role_id) VALUE(9, 'doctor3', 'doctor3','2020-10-03', 'doctor3@gmail.com','1111', 2);
  INSERT INTO user(id, name, surname, birthday, email, password, role_id) VALUE(10, 'admin1', 'admin1','2020-03-03', 'admin@gmail.com','admin', 3);
- 
+
  INSERT INTO doctor(id, user_id, doctor_type) VALUE(1,7,'Педіатр');
  INSERT INTO doctor(id, user_id, doctor_type) VALUE(2,8,'Хірург');
  INSERT INTO doctor(id, user_id, doctor_type) VALUE(3,9,'Травматолог');
  INSERT INTO doctor(id, user_id, doctor_type) VALUE(4,4,'Медсестра');
  INSERT INTO doctor(id, user_id, doctor_type) VALUE(5,5,'Медсестра');
  INSERT INTO doctor(id, user_id, doctor_type) VALUE(6,6,'Медсестра');
- 
+
  INSERT INTO assignment_type(id, type) VALUES(1,'Процедури'), (2, 'Ліки'), (3, 'Операції');
- 
+
  INSERT INTO assignment(id, executor_id, reporter_id, description, type_id) VALUE(1, 1, 1, 'doctor complete procedure', 1);
  INSERT INTO assignment(id, executor_id, reporter_id, description, type_id) VALUE(2, 2, 2, 'doctor complete Operation', 3);
  INSERT INTO assignment(id, executor_id, reporter_id, description, type_id) VALUE(3, 3, 3, 'doctor assignment medicine', 2);
- 
+
  INSERT INTO treatment(id, assignment_id, diagnosis) VALUE(1,1,'Oringit');
  INSERT INTO treatment(id, assignment_id, diagnosis) VALUE(2,2,'Break the leg');
  INSERT INTO treatment(id, assignment_id, diagnosis) VALUE(3,3,'Notit');
- 
- INSERT INTO patient(id, doctor_id, nurse_id, treatment_id) VALUES(1, 1, 4, 1),(2, 2, 5, 2),(3, 3, 6, 3);
+
+ INSERT INTO patient(id, user_id, doctor_id, nurse_id, treatment_id) VALUES(1, 1, 7, 4, 1),(2, 2, 8, 5, 2),(3, 3, 9, 6, 3);
  
  
  
