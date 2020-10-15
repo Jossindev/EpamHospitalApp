@@ -12,6 +12,9 @@ import java.util.Map;
 import static constant.HospitalPages.FORBIDDEN_PAGE;
 import static constant.HospitalPaths.*;
 
+/**
+ * The type Dispatcher filter.
+ */
 @WebFilter("/*")
 public class DispatcherFilter implements Filter {
     private static final Map<String, String> PROTECTED_URIS = new HashMap<>();

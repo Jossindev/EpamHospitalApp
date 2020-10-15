@@ -11,6 +11,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type Doctor dao.
+ */
 public class DoctorDAOImpl implements model.dao.interfaces.DoctorDAO {
     private static final Logger logger = Logger.getLogger(DoctorDAOImpl.class);
 
@@ -19,6 +22,9 @@ public class DoctorDAOImpl implements model.dao.interfaces.DoctorDAO {
     private static final String FIND_ALL_NURSES = "select * from doctor where doctor_type ='Медсестра'";
     private static final String FIND_DOCTOR_BY_ID = "select * from doctor where user_id = ?";
 
+    /**
+     * Instantiates a new Doctor dao.
+     */
     public DoctorDAOImpl() {
     }
 

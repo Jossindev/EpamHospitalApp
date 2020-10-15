@@ -9,6 +9,9 @@ import java.io.IOException;
 
 import static constant.HospitalPages.HOME_HOSPITAL;
 
+/**
+ * The type Home command.
+ */
 public class HomeCommand implements HospitalCommand {
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -11,6 +11,9 @@ import java.io.IOException;
 
 import static constant.HospitalPages.REGISTER_DOCTOR;
 
+/**
+ * The type Doctor register.
+ */
 public class DoctorRegister implements HospitalCommand {
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

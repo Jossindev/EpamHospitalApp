@@ -9,11 +9,17 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/**
+ * The type Treatment dao.
+ */
 public class TreatmentDAOImpl implements model.dao.interfaces.TreatmentDAOImpl {
     private static final Logger logger = Logger.getLogger(TreatmentDAOImpl.class);
 
     private static final String FIND_BY_ID = "select * from treatment where id = ?";
 
+    /**
+     * Instantiates a new Treatment dao.
+     */
     public TreatmentDAOImpl() { }
 
     @Override

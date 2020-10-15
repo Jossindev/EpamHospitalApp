@@ -11,6 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * The type Dispatcher servlet.
+ */
 @WebServlet("/")
 public class DispatcherServlet extends HttpServlet {
     private static final Creator getCreator = new GetCommandCreator();

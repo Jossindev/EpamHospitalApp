@@ -10,7 +10,9 @@ import java.io.IOException;
 
 import static constant.HospitalPaths.DOCTOR_HOME;
 
-
+/**
+ * The type Define diagnosis command.
+ */
 public class DefineDiagnosisCommand implements HospitalCommand {
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -20,8 +22,6 @@ public class DefineDiagnosisCommand implements HospitalCommand {
         PatientService service = new PatientService();
         service.assignTreatment(treatmentId, userId);
 
-    request.getRequestDispatcher(DOCTOR_HOME).forward(request, response);
-
-
+        request.getRequestDispatcher(DOCTOR_HOME).forward(request, response);
     }
 }

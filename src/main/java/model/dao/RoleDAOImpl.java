@@ -11,12 +11,18 @@ import java.sql.SQLException;
 
 import org.apache.log4j.Logger;
 
+/**
+ * The type Role dao.
+ */
 public class RoleDAOImpl implements RoleDAO {
     private static final Logger logger = Logger.getLogger(RoleDAOImpl.class);
 
     private static final String FIND_ROLE_BY_ID = "select * from role where id = ?";
     private static final String FIND_ROLE_BY_NAME = "select * from role where name = ?";
 
+    /**
+     * Instantiates a new Role dao.
+     */
     public RoleDAOImpl() { }
 
     @Override

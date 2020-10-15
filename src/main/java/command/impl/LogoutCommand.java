@@ -10,7 +10,13 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
+/**
+ * The type Logout command.
+ */
 public class LogoutCommand implements HospitalCommand {
+    /**
+     * The Validation.
+     */
     AuthValidation validation = new AuthValidation();
 
     @Override

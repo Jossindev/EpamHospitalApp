@@ -9,6 +9,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/**
+ * The type Assignment dao.
+ */
 public class AssignmentDAOImpl implements model.dao.interfaces.AssignmentDAO {
     private static final Logger logger = Logger.getLogger(AssignmentDAOImpl.class);
 
@@ -16,6 +19,9 @@ public class AssignmentDAOImpl implements model.dao.interfaces.AssignmentDAO {
     private static final String UPDATE_EXECUTOR = "update assignment set executor_id = ? where id = ?";
     private static final String UPDATE_REPORTER = "update assignment set reporter_id = ?, description = ? where id = ?";
 
+    /**
+     * Instantiates a new Assignment dao.
+     */
     public AssignmentDAOImpl() {
     }
 

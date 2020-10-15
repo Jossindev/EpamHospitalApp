@@ -2,10 +2,18 @@ package utils.factory;
 
 import model.dao.*;
 
+/**
+ * The type Dao factory.
+ */
 public class DaoFactoryImpl implements DaoFactory {
 
     private static DaoFactoryImpl instance;
 
+    /**
+     * Gets instance.
+     *
+     * @return the instance
+     */
     public static DaoFactoryImpl getInstance() {
         if (instance == null) {
             synchronized (DaoFactoryImpl.class) {

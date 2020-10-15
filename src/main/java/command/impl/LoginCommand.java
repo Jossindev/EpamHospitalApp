@@ -12,7 +12,13 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 
+/**
+ * The type Login command.
+ */
 public class LoginCommand implements HospitalCommand {
+    /**
+     * The Validation.
+     */
     AuthValidation validation = new AuthValidation();
 
     @Override

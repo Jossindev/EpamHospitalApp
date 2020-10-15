@@ -16,6 +16,9 @@ import java.util.List;
 
 import static constant.HospitalPages.DOCTOR_HOME;
 
+/**
+ * The type Doctor homepage.
+ */
 public class DoctorHomepage implements HospitalCommand {
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -34,5 +37,4 @@ public class DoctorHomepage implements HospitalCommand {
 
         request.getRequestDispatcher(DOCTOR_HOME).forward(request, response);
     }
-
 }

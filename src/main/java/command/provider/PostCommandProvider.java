@@ -9,9 +9,15 @@ import java.util.Map;
 
 import static constant.HospitalPaths.*;
 
+/**
+ * The type Post command provider.
+ */
 public class PostCommandProvider implements CommandProvider {
     private final Map<String, HospitalCommand> command = new HashMap<>();
 
+    /**
+     * Instantiates a new Post command provider.
+     */
     public PostCommandProvider() {
         command.put(HOME_HOSPITAL, new HomeCommand());
         command.put(LOGIN, new LoginCommand());

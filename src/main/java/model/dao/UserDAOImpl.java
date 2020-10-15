@@ -11,6 +11,9 @@ import java.sql.Date;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * The type User dao.
+ */
 public class UserDAOImpl implements UserDAO {
     private static final Logger logger = Logger.getLogger(UserDAOImpl.class);
 
@@ -20,6 +23,9 @@ public class UserDAOImpl implements UserDAO {
     private final static String INSERT_USER = "insert into user(name, surname, birthday, email, password, role_id)  " +
             "values (?, ?, ?, ?, ?, ?)";
 
+    /**
+     * Instantiates a new User dao.
+     */
     public UserDAOImpl() {
     }
 

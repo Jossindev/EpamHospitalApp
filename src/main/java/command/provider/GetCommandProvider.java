@@ -14,9 +14,15 @@ import java.util.HashMap;
 import java.util.Map;
 
 
+/**
+ * The type Get command provider.
+ */
 public class GetCommandProvider implements CommandProvider {
     private final Map<String, HospitalCommand> command = new HashMap<>();
 
+    /**
+     * Instantiates a new Get command provider.
+     */
     public GetCommandProvider() {
         command.put(HospitalPaths.HOME_HOSPITAL, new HomeCommand());
         command.put(HospitalPaths.LOGOUT, new LogoutCommand());

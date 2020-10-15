@@ -12,6 +12,9 @@ import java.io.IOException;
 
 import static constant.HospitalPages.PATIENT_HOME;
 
+/**
+ * The type Patient homepage.
+ */
 public class PatientHomepage implements HospitalCommand {
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

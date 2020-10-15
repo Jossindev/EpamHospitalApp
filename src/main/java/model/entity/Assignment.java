@@ -5,6 +5,9 @@ import model.dao.DoctorDAOImpl;
 
 import java.util.Objects;
 
+/**
+ * The type Assignment.
+ */
 public class Assignment {
     private int id;
     private Doctor executor;
@@ -15,7 +18,6 @@ public class Assignment {
     public Assignment(int id) {
         this.id = id;
     }
-
 
     public Assignment(int id, int executor, int reporter, String description, int type) {
         this.id = id;

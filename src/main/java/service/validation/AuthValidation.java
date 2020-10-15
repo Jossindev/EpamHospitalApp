@@ -8,12 +8,26 @@ import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * The type Auth validation.
+ */
 public class AuthValidation {
     private static final String EMAIL_REGEX = "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$";
     private static final String PASSWORD_REGEX = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{5,15}$";
 
+    /**
+     * The User service.
+     */
     UserService userService = new UserService();
 
+    /**
+     * Login boolean.
+     *
+     * @param username    the username
+     * @param rawPassword the raw password
+     * @param session     the session
+     * @return the boolean
+     */
     public boolean login(String username, String rawPassword, HttpSession session) {
         Optional<User> user = userService.signIn(username, rawPassword);
 
@@ -31,6 +45,13 @@ public class AuthValidation {
         return true;
     }
 
+    /**
+     * Register boolean.
+     *
+     * @param user            the user
+     * @param confirmPassword the confirm password
+     * @return the boolean
+     */
     public boolean register(User user, String confirmPassword) {
         if (user.getName() == null || user.getSurname() == null || user.getBirthday() == null
                 || user.getEmail() == null || user.getPassword() == null || user.getRoleId() == null) {
@@ -50,6 +71,11 @@ public class AuthValidation {
         }
     }
 
+    /**
+     * Logout.
+     *
+     * @param session the session
+     */
     public void logout(HttpSession session) {
         session.invalidate();
     }

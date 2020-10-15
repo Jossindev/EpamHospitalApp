@@ -17,6 +17,9 @@ import java.util.List;
 
 import static constant.HospitalPages.ADMIN_HOME;
 
+/**
+ * The type Sorting command.
+ */
 public class SortingCommand implements HospitalCommand {
     private static final Comparator<Doctor> SORT_DOCTOR_BY_ALPHABET = (o1, o2) -> o1.getUserId().getName().compareTo(o2.getUserId().getName());
     private static final Comparator<Doctor> SORT_DOCTOR_BY_TYPE = Comparator.comparing(Doctor::getDoctorType);
@@ -69,18 +72,4 @@ public class SortingCommand implements HospitalCommand {
         }
         request.getRequestDispatcher(ADMIN_HOME).forward(request, response);
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

@@ -10,6 +10,9 @@ import java.io.IOException;
 import static constant.HospitalPages.ABOUT;
 
 
+/**
+ * The type About command.
+ */
 public class AboutCommand implements HospitalCommand {
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

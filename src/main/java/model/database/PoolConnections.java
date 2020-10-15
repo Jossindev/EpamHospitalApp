@@ -7,6 +7,9 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
+/**
+ * The type Pool connections.
+ */
 public class PoolConnections {
     private static final HikariDataSource ds;
     private static final ResourceBundle resourceBundle = ResourceBundle.getBundle("database");
@@ -23,8 +26,17 @@ public class PoolConnections {
         ds = new HikariDataSource(config);
     }
 
+    /**
+     * Instantiates a new Pool connections.
+     */
     public PoolConnections() { }
 
+    /**
+     * Gets connection.
+     *
+     * @return the connection
+     * @throws SQLException the sql exception
+     */
     public static Connection getConnection() throws SQLException {
         return ds.getConnection();
     }

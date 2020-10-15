@@ -10,6 +10,9 @@ import java.io.IOException;
 
 import static constant.HospitalPaths.DOCTOR_HOME;
 
+/**
+ * The type Create assignment command.
+ */
 public class CreateAssignmentCommand implements HospitalCommand {
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

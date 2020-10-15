@@ -10,6 +10,9 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type Patient dao.
+ */
 public class PatientDAOImpl implements model.dao.interfaces.PatientDAOImpl {
     private static final Logger logger = Logger.getLogger(PatientDAOImpl.class);
 
@@ -21,6 +24,9 @@ public class PatientDAOImpl implements model.dao.interfaces.PatientDAOImpl {
     private static final String INSERT_PATIENT = "insert into patient(id, user_id) values(?,?)";
     private static final String FIND_PATIENT_BY_ID = "select * from patient where user_id = ?";
 
+    /**
+     * Instantiates a new Patient dao.
+     */
     public PatientDAOImpl() {
     }
 

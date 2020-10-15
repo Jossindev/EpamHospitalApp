@@ -9,12 +9,18 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type Assignment type dao.
+ */
 public class AssignmentTypeDAOImpl implements AssignmentTypeDAO {
     private static final Logger logger = Logger.getLogger(AssignmentTypeDAOImpl.class);
 
     private static final String FIND_BY_ID = "select * from assignment_type where id =?";
     private static final String FIND_ALL_TYPE = "select * from assignment_type";
 
+    /**
+     * Instantiates a new Assignment type dao.
+     */
     public AssignmentTypeDAOImpl() { }
 
     @Override

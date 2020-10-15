@@ -15,6 +15,9 @@ import java.io.IOException;
 import java.util.List;
 import static constant.HospitalPages.ADMIN_HOME;
 
+/**
+ * The type Admin homepage.
+ */
 public class AdminHomepage implements HospitalCommand {
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
