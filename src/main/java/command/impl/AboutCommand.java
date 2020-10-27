@@ -9,7 +9,6 @@ import java.io.IOException;
 
 import static constant.HospitalPages.ABOUT;
 
-
 /**
  * The type About command.
  */

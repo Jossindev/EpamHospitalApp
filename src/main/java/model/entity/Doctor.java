@@ -16,6 +16,12 @@ public class Doctor  {
         this.doctorType = doctorType;
     }
 
+    public Doctor(int id, User user, String doctorType) {
+        this.id = id;
+        this.userId = user;
+        this.doctorType = doctorType;
+    }
+
     public int getId() {
         return id;
     }

@@ -14,6 +14,11 @@ public class Treatment {
         this.assignment = detectAssignment(assignment);
         this.diagnosis = diagnosis;
     }
+    public Treatment(int id, Assignment assignment, String diagnosis) {
+        this.id = id;
+        this.assignment = assignment;
+        this.diagnosis = diagnosis;
+    }
 
     public int getId() {
         return id;
